@@ -1,0 +1,22 @@
+{
+	"name": "100-day-of-js-enhance",
+	"version": "1.0.0",
+	"description": "100 days to enhance your skills on JavaScript.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:serve": "vitepress serve docs"
+	},
+	"keywords": [
+		"JavaScript",
+		"100 days"
+	],
+	"author": "jonsam ng",
+	"license": "MIT",
+	"devDependencies": {
+		"vitepress": "1.0.0-alpha.15",
+		"vue": "^3.2.39"
+	}
+}
