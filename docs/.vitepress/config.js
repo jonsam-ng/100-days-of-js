@@ -47,7 +47,6 @@ export default defineConfig({
 	titleTemplate: false,
 	description: "100 days to enhance your skills on JavaScript.",
 	appearance: true,
-	base: "./",
 	lastUpdated: true,
 	head: [
 		["link", { rel: "shortcut icon", href: "/logo/favicon.ico", sizes: "any" }],
