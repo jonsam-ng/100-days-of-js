@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prepare
-      - run: npm install pnpm -g
+        run: npm install pnpm -g
 
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
