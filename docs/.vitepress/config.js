@@ -23,7 +23,12 @@ const themeConfig = {
 			],
 		},
 	],
-	socialLinks: [{ icon: "github", link: "https://github.com/jonsam-ng" }],
+	socialLinks: [
+		{
+			icon: "github",
+			link: "https://github.com/jonsam-ng/100-day-of-js-enhance",
+		},
+	],
 	footer: {
 		message: "Released under the MIT License.",
 		copyright: "Copyright © 2022-present Jonsam NG",
