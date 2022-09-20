@@ -130,6 +130,7 @@
 
 <script>
 import { onMounted, getCurrentInstance } from "vue";
+
 export default {
 	name: "Pdf",
 	components: {},

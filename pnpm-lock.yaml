@@ -13,6 +13,7 @@ specifiers:
   vue: ^3.2.39
   vue-core-video-player: ^0.2.0
   vue-pdf-embed: ^1.1.4
+  zooming: ^2.1.1
 
 dependencies:
   '@cloudgeek/vue3-video-player': 0.3.10
@@ -22,6 +23,7 @@ dependencies:
   vitepress-plugin-search: 1.0.4-alpha.7_6k75ayy4hhgjgcfd2jz6vefw4m
   vue-core-video-player: 0.2.0
   vue-pdf-embed: 1.1.4_vue@3.2.39
+  zooming: 2.1.1
 
 devDependencies:
   chalk: 4.1.2
@@ -3622,3 +3624,7 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+  /zooming/2.1.1:
+    resolution: {integrity: sha512-Z38dkZRQsFNBE67+xDBQLNKMs5J1Gc+s3/zO6iezTrC24VYLJV7YPBdBDJmiLhff5qa6Awxv4wsjqx3oYz2MYA==}
+    dev: false

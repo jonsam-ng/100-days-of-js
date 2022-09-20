@@ -16,6 +16,7 @@ const { sidebar, nav } = AutoNavPlugin({
 const themeConfig = {
 	logo: "/logo/favicon-16x16.png",
 	siteTitle: "100 days of JavaScript",
+	outline: [2, 4],
 	nav: [
 		...nav,
 		{
