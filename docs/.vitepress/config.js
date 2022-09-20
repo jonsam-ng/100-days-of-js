@@ -1,10 +1,12 @@
 import { defineConfig } from "vitepress";
 import AutoNavPlugin from "vitepress-auto-nav-sidebar";
 
+/** see https://www.npmjs.com/package/vitepress-auto-nav-sidebar */
 const { sidebar, nav } = AutoNavPlugin({
 	ignoreFolders: ["node_modules", "assets", "public", ".vitepress", "utils"],
 	ignoreFiles: ["index"],
 	showSideIcon: true,
+	showNavIcon: true,
 	dirPrefix: "📂 ",
 	filePrefix: "📃 ",
 	isCollapse: true,
@@ -17,7 +19,7 @@ const themeConfig = {
 	nav: [
 		...nav,
 		{
-			text: "更多",
+			text: "More",
 			items: [
 				{ text: "源码阅读", link: "https://source.jonsam.site" },
 				{ text: "Fancy-DSA", link: "https://dsa.jonsam.site" },
