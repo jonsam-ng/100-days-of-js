@@ -1,28 +1,36 @@
 import { defineConfig } from "vitepress";
+import AutoNavPlugin from "vitepress-auto-nav-sidebar";
+
+const { sidebar, nav } = AutoNavPlugin({
+	ignoreFolders: ["node_modules", "assets", "public", ".vitepress", "utils"],
+	ignoreFiles: ["index"],
+	showSideIcon: true,
+	dirPrefix: "📂 ",
+	filePrefix: "📃 ",
+	isCollapse: true,
+	collapsed: false,
+});
 
 const themeConfig = {
 	logo: "/logo/favicon-16x16.png",
 	siteTitle: "100 days of JavaScript",
 	nav: [
-		// { text: "Guide", link: "/guide" },
+		...nav,
 		{
-			text: "Dropdown Menu",
+			text: "更多",
 			items: [
-				{ text: "Item A", link: "/item-1" },
-				{ text: "Item B", link: "/item-2" },
-				{ text: "Item C", link: "/item-3" },
+				{ text: "源码阅读", link: "https://source.jonsam.site" },
+				{ text: "Fancy-DSA", link: "https://dsa.jonsam.site" },
+				{
+					text: "深入学习设计模式",
+					link: "http://docs.jonsam.site/project-5/",
+				},
+				{ text: "导航", link: "https://source.jonsam.site/nav" },
 			],
 		},
+		{ text: "Blog", link: "https://www.jonsam.site" },
 	],
-	sidebar: [
-		{
-			text: "Guide",
-			items: [
-				{ text: "Introduction", link: "/introduction" },
-				{ text: "Getting Started", link: "/getting-started" },
-			],
-		},
-	],
+	sidebar,
 	socialLinks: [
 		{
 			icon: "github",
@@ -31,7 +39,7 @@ const themeConfig = {
 	],
 	footer: {
 		message: "Released under the MIT License.",
-		copyright: "Copyright © 2022-present Jonsam NG",
+		copyright: "Copyright © 2022-present, made by Jonsam NG with 💖",
 	},
 	editLink: {
 		pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
@@ -40,10 +48,7 @@ const themeConfig = {
 	themeConfig: {
 		lastUpdatedText: "最近更新",
 	},
-	docFooter: {
-		// prev: "Pagina prior",
-		// next: "Proxima pagina",
-	},
+	docFooter: {},
 };
 
 export default defineConfig({
@@ -57,10 +62,13 @@ export default defineConfig({
 	head: [
 		["link", { rel: "shortcut icon", href: "/logo/favicon.ico", sizes: "any" }],
 	],
-	cleanUrls: "with-subfolders",
+	cleanUrls: "without-subfolders",
 	markdown: {
 		theme: "material-palenight",
 		lineNumbers: true,
+		headers: {
+			level: [0, 0],
+		},
 	},
 	themeConfig,
 });
