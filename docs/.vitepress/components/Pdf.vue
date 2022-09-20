@@ -108,19 +108,21 @@
 			</div>
 
 			<div class="app-content">
-				<VuePdfEmbed
-					ref="pdfRef"
-					:source="{
-						url: src,
-						//引入pdf.js字体
-						cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.5.207/cmaps/',
-						cMapPacked: true,
-					}"
-					:page="page"
-					@password-requested="handlePasswordRequest"
-					@rendered="handleDocumentRender"
-					:disableAnnotationLayer="true"
-				/>
+				<ClientOnly>
+					<VuePdfEmbed
+						ref="pdfRef"
+						:source="{
+							url: src,
+							//引入pdf.js字体
+							cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.5.207/cmaps/',
+							cMapPacked: true,
+						}"
+						:page="page"
+						@password-requested="handlePasswordRequest"
+						@rendered="handleDocumentRender"
+						:disableAnnotationLayer="true"
+					/>
+				</ClientOnly>
 			</div>
 		</div>
 	</ClientOnly>
