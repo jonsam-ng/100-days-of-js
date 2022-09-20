@@ -14,6 +14,5 @@ export default {
 		this.$vitepress.zooming = new ZoomingPlugin();
 		this.$vitepress.zooming.updateDelay();
 		zoomingInit = true;
-		console.log("==>", 11);
 	},
 };
