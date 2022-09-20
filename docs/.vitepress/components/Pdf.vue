@@ -108,37 +108,35 @@
 			</div>
 
 			<div class="app-content">
-				<ClientOnly>
-					<VuePdfEmbed
-						ref="pdfRef"
-						:source="{
-							url: src,
-							//引入pdf.js字体
-							cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.5.207/cmaps/',
-							cMapPacked: true,
-						}"
-						:page="page"
-						@password-requested="handlePasswordRequest"
-						@rendered="handleDocumentRender"
-						:disableAnnotationLayer="true"
-					/>
-				</ClientOnly>
+				<component
+					v-if="dynamicComponent"
+					:is="dynamicComponent"
+					ref="pdfRef"
+					:source="{
+						url: src,
+						//引入pdf.js字体
+						cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.5.207/cmaps/',
+						cMapPacked: true,
+					}"
+					:page="page"
+					@password-requested="handlePasswordRequest"
+					@rendered="handleDocumentRender"
+					:disableAnnotationLayer="true"
+				/>
 			</div>
 		</div>
 	</ClientOnly>
 </template>
 
 <script>
-import VuePdfEmbed from "vue-pdf-embed/dist/vue3-pdf-embed";
-
+import { onMounted, getCurrentInstance } from "vue";
 export default {
 	name: "Pdf",
-	components: {
-		VuePdfEmbed,
-	},
+	components: {},
 	props: { src: String },
 	data() {
 		return {
+			dynamicComponent: null,
 			isLoading: true,
 			page: 1,
 			pageCount: 1,
@@ -190,6 +188,15 @@ export default {
 				this.showAllPages = !this.showAllPages;
 			}, 300);
 		},
+	},
+	setup() {
+		const instance = getCurrentInstance();
+		onMounted(() => {
+			import("vue-pdf-embed/dist/vue3-pdf-embed").then((m) => {
+				if (!instance) return;
+				instance.data.dynamicComponent = m.default;
+			});
+		});
 	},
 };
 </script>

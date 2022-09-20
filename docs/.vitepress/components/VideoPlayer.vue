@@ -1,6 +1,8 @@
 <template>
 	<div class="player-container">
-		<vue3-video-player
+		<component
+			v-if="dynamicComponent"
+			:is="dynamicComponent"
 			:src="src"
 			:muted="muted"
 			:cover="cover"
@@ -17,8 +19,15 @@
 </template>
 
 <script>
+import { getCurrentInstance, onMounted } from "vue";
+
 export default {
 	name: "VideoPlayer",
+	data() {
+		return {
+			dynamicComponent: null,
+		};
+	},
 	props: {
 		src: {
 			type: [String, Array], // 视频链接
@@ -65,6 +74,22 @@ export default {
 			default: false,
 		},
 		lang: { type: String, default: "zh-CN" },
+	},
+	mounted() {},
+	setup() {
+		const _instance = getCurrentInstance();
+		const vueInstance = _instance.appContext;
+		onMounted(() => {
+			// see https://github.com/LarchLiu/vue3-video-player/
+			import("@cloudgeek/vue3-video-player").then((module) => {
+				if (!vueInstance) return;
+				vueInstance.app.use(module.default, {
+					lang: "zh-CN",
+				});
+				_instance.data.dynamicComponent =
+					vueInstance.components.Vue3VideoPlayer;
+			});
+		});
 	},
 };
 </script>

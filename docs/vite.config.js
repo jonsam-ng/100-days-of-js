@@ -4,8 +4,5 @@ import { SearchPlugin } from "vitepress-plugin-search";
 
 export default defineConfig({
 	plugins: [VitePWA(), SearchPlugin()],
-	define: {
-		global: "globalThis",
-		self: "window",
-	},
+	define: {},
 });
