@@ -13,6 +13,9 @@ hero:
       text: View on GitHub
       link: https://github.com/jonsam-ng/100-day-of-js-enhance
 features:
+  - icon: 🍇
+    title: CS
+    details: 网络原理、操作系统......
   - icon: 🍓
     title: DSA
     details: 数据结构与算法
