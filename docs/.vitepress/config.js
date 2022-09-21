@@ -74,4 +74,9 @@ export default defineConfig({
 		},
 	},
 	themeConfig,
+	pwa: {
+		workboxOptions: {
+			skipWaiting: true,
+		},
+	},
 });
