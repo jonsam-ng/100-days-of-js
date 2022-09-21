@@ -48,14 +48,14 @@ const themeConfig = {
 		pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
 		text: "Edit this page on GitHub",
 	},
-	themeConfig: {
-		lastUpdatedText: "最近更新",
-	},
+	lastUpdatedText: "最近更新",
 	docFooter: {},
+	outlineTitle: "🔗 内容纲要：",
 };
 
 export default defineConfig({
 	lang: "zh-CN",
+	locales: {},
 	title: "100 days of JavaScript",
 	titleTemplate: false,
 	description: "100 days to enhance your skills on JavaScript.",
