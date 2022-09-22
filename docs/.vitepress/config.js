@@ -24,6 +24,7 @@ const themeConfig = {
 			items: [
 				{ text: "源码阅读", link: "https://source.jonsam.site" },
 				{ text: "Fancy-DSA", link: "https://dsa.jonsam.site" },
+				{ text: "氧气空间", link: "https://ox.jonsam.site" },
 				{
 					text: "深入学习设计模式",
 					link: "http://docs.jonsam.site/project-5/",
