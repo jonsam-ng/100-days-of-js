@@ -179,7 +179,9 @@ export default {
 			if (!this.src) return;
 			const link = document.createElement("a");
 			link.href = this.src;
-			link.download = this.src.match(/pdf\/(.*)\./)[1];
+			const filename =
+				this.src.substring(this.src.lastIndexOf("/") + 1) ?? "文件.pdf";
+			link.download = filename;
 			link.click();
 		},
 		toggleShowAllPages() {
