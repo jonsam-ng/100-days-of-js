@@ -20,7 +20,7 @@ const themeConfig = {
 	nav: [
 		...nav,
 		{
-			text: "More",
+			text: "⛓️ More",
 			items: [
 				{ text: "源码阅读", link: "https://source.jonsam.site" },
 				{ text: "Fancy-DSA", link: "https://dsa.jonsam.site" },
@@ -32,7 +32,7 @@ const themeConfig = {
 				{ text: "导航", link: "https://source.jonsam.site/nav" },
 			],
 		},
-		{ text: "Blog", link: "https://www.jonsam.site" },
+		{ text: "🏷️ Blog", link: "https://www.jonsam.site" },
 	],
 	sidebar,
 	socialLinks: [
