@@ -25,13 +25,19 @@
 	},
 	"dependencies": {
 		"@cloudgeek/vue3-video-player": "^0.3.10",
+		"@codemirror/lang-html": "^6.1.1",
+		"@codemirror/lang-javascript": "^6.0.2",
+		"@codemirror/theme-one-dark": "^6.0.0",
 		"ismobilejs": "^1.1.1",
 		"qrcode.vue": "^3.3.3",
 		"vite-plugin-pwa": "^0.13.0",
 		"vitepress-auto-nav-sidebar": "^0.0.4",
 		"vitepress-plugin-search": "1.0.4-alpha.7",
+		"vue-codemirror": "^6.0.2",
+		"codemirror": "^6.0.1",
 		"vue-core-video-player": "^0.2.0",
 		"vue-pdf-embed": "^1.1.4",
+		"xmind-embed-viewer": "^1.0.7",
 		"zooming": "^2.1.1"
 	}
 }

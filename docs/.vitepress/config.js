@@ -1,10 +1,11 @@
 import { defineConfig } from "vitepress";
 import AutoNavPlugin from "vitepress-auto-nav-sidebar";
+import CodeRunPlugin from "./plugins/run-code";
 
 /** see https://www.npmjs.com/package/vitepress-auto-nav-sidebar */
 const { sidebar, nav } = AutoNavPlugin({
 	ignoreFolders: ["node_modules", "assets", "public", ".vitepress", "utils"],
-	ignoreFiles: ["index"],
+	ignoreFiles: ["index", "示例"],
 	showSideIcon: true,
 	showNavIcon: true,
 	dirPrefix: "📂 ",
@@ -22,6 +23,7 @@ const themeConfig = {
 		{
 			text: "⛓️ More",
 			items: [
+				{ text: "示例", link: "/示例" },
 				{ text: "源码阅读", link: "https://source.jonsam.site" },
 				{ text: "Fancy-DSA", link: "https://dsa.jonsam.site" },
 				{ text: "氧气空间", link: "https://ox.jonsam.site" },
@@ -99,6 +101,21 @@ export default defineConfig({
 		lineNumbers: true,
 		headers: {
 			level: [0, 0],
+		},
+		config: (md) => {
+			md.use(CodeRunPlugin);
+			md.use(function (md) {
+				const handleImage = md.renderer.rules.image;
+				md.renderer.rules.image = (tokens, idx, options, env, self) => {
+					const url = tokens[idx].attrs[0][1];
+					if (/.xmind$/.test(url)) {
+						const title = tokens[idx].children[0].content;
+						const url = tokens[idx].attrs[0][1];
+						return `<XMindViewer src="${url}" title="${title}"></XMindViewer>`;
+					}
+					return handleImage(tokens, idx, options, env, self);
+				};
+			});
 		},
 	},
 	themeConfig,

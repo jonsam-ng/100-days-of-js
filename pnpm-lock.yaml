@@ -2,7 +2,11 @@ lockfileVersion: 5.4
 
 specifiers:
   '@cloudgeek/vue3-video-player': ^0.3.10
+  '@codemirror/lang-html': ^6.1.1
+  '@codemirror/lang-javascript': ^6.0.2
+  '@codemirror/theme-one-dark': ^6.0.0
   chalk: ^4.0.1
+  codemirror: ^6.0.1
   gray-matter: ^4.0.3
   ismobilejs: ^1.1.1
   qrcode.vue: ^3.3.3
@@ -12,19 +16,27 @@ specifiers:
   vitepress-auto-nav-sidebar: ^0.0.4
   vitepress-plugin-search: 1.0.4-alpha.7
   vue: ^3.2.39
+  vue-codemirror: ^6.0.2
   vue-core-video-player: ^0.2.0
   vue-pdf-embed: ^1.1.4
+  xmind-embed-viewer: ^1.0.7
   zooming: ^2.1.1
 
 dependencies:
   '@cloudgeek/vue3-video-player': 0.3.10
+  '@codemirror/lang-html': 6.1.1
+  '@codemirror/lang-javascript': 6.1.0
+  '@codemirror/theme-one-dark': 6.1.0
+  codemirror: 6.0.1
   ismobilejs: 1.1.1
   qrcode.vue: 3.3.3_vue@3.2.39
   vite-plugin-pwa: 0.13.0
   vitepress-auto-nav-sidebar: 0.0.4
   vitepress-plugin-search: 1.0.4-alpha.7_6k75ayy4hhgjgcfd2jz6vefw4m
+  vue-codemirror: 6.1.1_4qg5j2btbutllz27qbs3lnu7tu
   vue-core-video-player: 0.2.0
   vue-pdf-embed: 1.1.4_vue@3.2.39
+  xmind-embed-viewer: 1.0.7
   zooming: 2.1.1
 
 devDependencies:
@@ -1299,6 +1311,106 @@ packages:
       vue: 3.2.39
     dev: false
 
+  /@codemirror/autocomplete/6.3.0:
+    resolution: {integrity: sha512-4jEvh3AjJZTDKazd10J6ZsCIqaYxDMCeua5ouQxY8hlFIml+nr7le0SgBhT3SIytFBmdzPK3AUhXGuW3T79nVg==}
+    dependencies:
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/common': 1.0.1
+    dev: false
+
+  /@codemirror/commands/6.1.0:
+    resolution: {integrity: sha512-qCj2YqmbBjj0P1iumnlL5lBqZvJPzT+t2UvgjcaXErp5ZvMqFRVgQyrEfdXX6SX5UcvcHKBjXqno+MkUp0aYvQ==}
+    dependencies:
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/common': 1.0.1
+    dev: false
+
+  /@codemirror/lang-css/6.0.0:
+    resolution: {integrity: sha512-jBqc+BTuwhNOTlrimFghLlSrN6iFuE44HULKWoR4qKYObhOIl9Lci1iYj6zMIte1XTQmZguNvjXMyr43LUKwSw==}
+    dependencies:
+      '@codemirror/autocomplete': 6.3.0
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@lezer/css': 1.0.0
+    dev: false
+
+  /@codemirror/lang-html/6.1.1:
+    resolution: {integrity: sha512-+hV1kVZySmr7GxCgSVM+BodaVlsgD98laEJbj/GALhgIrfnHTSiRuTz2EPTjNCKeq5uEQXeOKFY711/CxJbYrg==}
+    dependencies:
+      '@codemirror/autocomplete': 6.3.0
+      '@codemirror/lang-css': 6.0.0
+      '@codemirror/lang-javascript': 6.1.0
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/common': 1.0.1
+      '@lezer/html': 1.0.1
+    dev: false
+
+  /@codemirror/lang-javascript/6.1.0:
+    resolution: {integrity: sha512-wAWEY1Wdis2cKDy9A5q/rUmzLHFbZgoupJBcGaeMMsDPi68Rm90NsmzAEODE5kW8mYdRKFhQ157WJghOZ3yYdg==}
+    dependencies:
+      '@codemirror/autocomplete': 6.3.0
+      '@codemirror/language': 6.2.1
+      '@codemirror/lint': 6.0.0
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/common': 1.0.1
+      '@lezer/javascript': 1.0.2
+    dev: false
+
+  /@codemirror/language/6.2.1:
+    resolution: {integrity: sha512-MC3svxuvIj0MRpFlGHxLS6vPyIdbTr2KKPEW46kCoCXw2ktb4NTkpkPBI/lSP/FoNXLCBJ0mrnUi1OoZxtpW1Q==}
+    dependencies:
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/common': 1.0.1
+      '@lezer/highlight': 1.1.1
+      '@lezer/lr': 1.2.3
+      style-mod: 4.0.0
+    dev: false
+
+  /@codemirror/lint/6.0.0:
+    resolution: {integrity: sha512-nUUXcJW1Xp54kNs+a1ToPLK8MadO0rMTnJB8Zk4Z8gBdrN0kqV7uvUraU/T2yqg+grDNR38Vmy/MrhQN/RgwiA==}
+    dependencies:
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      crelt: 1.0.5
+    dev: false
+
+  /@codemirror/search/6.2.0:
+    resolution: {integrity: sha512-FVhpUvPFUJe8lg2EQJTTcF4RNI9d/OC3PVitvOfhv5OuY7ZgtMfJl22o5eMkzOEsUY2Wxe7BKGLpe2UI5Wq3PQ==}
+    dependencies:
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      crelt: 1.0.5
+    dev: false
+
+  /@codemirror/state/6.1.2:
+    resolution: {integrity: sha512-Mxff85Hp5va+zuj+H748KbubXjrinX/k28lj43H14T2D0+4kuvEFIEIO7hCEcvBT8ubZyIelt9yGOjj2MWOEQA==}
+    dev: false
+
+  /@codemirror/theme-one-dark/6.1.0:
+    resolution: {integrity: sha512-AiTHtFRu8+vWT9wWUWDM+cog6ZwgivJogB1Tm/g40NIpLwph7AnmxrSzWfvJN5fBVufsuwBxecQCNmdcR5D7Aw==}
+    dependencies:
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      '@lezer/highlight': 1.1.1
+    dev: false
+
+  /@codemirror/view/6.2.5:
+    resolution: {integrity: sha512-4kVS3RZi3nkPNfG2X/7+2L8IhoJv6dJ9yJz4KUlw4rwxI8OmVCKJzC/jnJqp+bVNOml+oA3gSF1kX2VvOiI72Q==}
+    dependencies:
+      '@codemirror/state': 6.1.2
+      style-mod: 4.0.0
+      w3c-keyname: 2.2.6
+    dev: false
+
   /@docsearch/css/3.2.1:
     resolution: {integrity: sha512-gaP6TxxwQC+K8D6TRx5WULUWKrcbzECOPA2KCVMuI+6C7dNiGUk5yXXzVhc5sld79XKYLnO9DRTI4mjXDYkh+g==}
 
@@ -1395,6 +1507,44 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+    dev: false
+
+  /@lezer/common/1.0.1:
+    resolution: {integrity: sha512-8TR5++Q/F//tpDsLd5zkrvEX5xxeemafEaek7mUp7Y+bI8cKQXdSqhzTOBaOogETcMOVr0pT3BBPXp13477ciw==}
+    dev: false
+
+  /@lezer/css/1.0.0:
+    resolution: {integrity: sha512-616VqgDKumHmYIuxs3tnX1irEQmoDHgF/TlP4O5ICWwyHwLMErq+8iKVuzTkOdBqvYAVmObqThcDEAaaMJjAdg==}
+    dependencies:
+      '@lezer/highlight': 1.1.1
+      '@lezer/lr': 1.2.3
+    dev: false
+
+  /@lezer/highlight/1.1.1:
+    resolution: {integrity: sha512-duv9D23O9ghEDnnUDmxu+L8pJy4nYo4AbCOHIudUhscrLSazqeJeK1V50EU6ZufWF1zv0KJwu/frFRyZWXxHBQ==}
+    dependencies:
+      '@lezer/common': 1.0.1
+    dev: false
+
+  /@lezer/html/1.0.1:
+    resolution: {integrity: sha512-sC00zEt3GBh3vVO6QaGX4YZCl41S9dHWN/WGBsDixy9G+sqOC7gsa4cxA/fmRVAiBvhqYkJk+5Ul4oul92CPVw==}
+    dependencies:
+      '@lezer/common': 1.0.1
+      '@lezer/highlight': 1.1.1
+      '@lezer/lr': 1.2.3
+    dev: false
+
+  /@lezer/javascript/1.0.2:
+    resolution: {integrity: sha512-IjOVeIRhM8IuafWNnk+UzRz7p4/JSOKBNINLYLsdSGuJS9Ju7vFdc82AlTt0jgtV5D8eBZf4g0vK4d3ttBNz7A==}
+    dependencies:
+      '@lezer/highlight': 1.1.1
+      '@lezer/lr': 1.2.3
+    dev: false
+
+  /@lezer/lr/1.2.3:
+    resolution: {integrity: sha512-qpB7rBzH8f6Mzjv2AVZRahcm+2Cf7nbIH++uXbvVOL1yIRvVWQ3HAM/saeBLCyz/togB7LGo76qdJYL1uKQlqA==}
+    dependencies:
+      '@lezer/common': 1.0.1
     dev: false
 
   /@multiavatar/multiavatar/1.0.7:
@@ -1822,6 +1972,18 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
+  /codemirror/6.0.1:
+    resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
+    dependencies:
+      '@codemirror/autocomplete': 6.3.0
+      '@codemirror/commands': 6.1.0
+      '@codemirror/language': 6.2.1
+      '@codemirror/lint': 6.0.0
+      '@codemirror/search': 6.2.0
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+    dev: false
+
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -1874,6 +2036,10 @@ packages:
   /core-js/3.25.2:
     resolution: {integrity: sha512-YB4IAT1bjEfxTJ1XYy11hJAKskO+qmhuDBM8/guIfMz4JvdsAQAqvyb97zXX7JgSrfPLG5mRGFWJwJD39ruq2A==}
     requiresBuild: true
+    dev: false
+
+  /crelt/1.0.5:
+    resolution: {integrity: sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==}
     dev: false
 
   /crypto-random-string/2.0.0:
@@ -3151,6 +3317,10 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  /style-mod/4.0.0:
+    resolution: {integrity: sha512-OPhtyEjyyN9x3nhPsu76f52yUGXiZcgvsrFVtvTkyGRQJ0XK+GPc6ov1z+lRpbeabka+MYEQxOYRnt5nF30aMw==}
+    dev: false
+
   /stylus/0.59.0:
     resolution: {integrity: sha512-lQ9w/XIOH5ZHVNuNbWW8D822r+/wBSO/d6XvtyHLF7LW4KaCIDeVbvn5DF8fGCJAUCwVhVi/h6J0NUcnylUEjg==}
     hasBin: true
@@ -3401,6 +3571,20 @@ packages:
   /vscode-textmate/6.0.0:
     resolution: {integrity: sha512-gu73tuZfJgu+mvCSy4UZwd2JXykjK9zAZsfmDeut5dx/1a7FeTk0XwJsSuqQn+cuMCGVbIBfl+s53X4T19DnzQ==}
 
+  /vue-codemirror/6.1.1_4qg5j2btbutllz27qbs3lnu7tu:
+    resolution: {integrity: sha512-rTAYo44owd282yVxKtJtnOi7ERAcXTeviwoPXjIc6K/IQYUsoDkzPvw/JDFtSP6T7Cz/2g3EHaEyeyaQCKoDMg==}
+    peerDependencies:
+      codemirror: 6.x
+      vue: 3.x
+    dependencies:
+      '@codemirror/commands': 6.1.0
+      '@codemirror/language': 6.2.1
+      '@codemirror/state': 6.1.2
+      '@codemirror/view': 6.2.5
+      codemirror: 6.0.1
+      vue: 3.2.39
+    dev: false
+
   /vue-core-video-player/0.2.0:
     resolution: {integrity: sha512-NmUohYKDeuZIZLjax/z4K4MlS//ZcEtSejFkCSznYb6/pO5MEeIyNB6MjBuoE11iswpCe2wb6y8O/RcF5LfMhw==}
     dependencies:
@@ -3455,6 +3639,10 @@ packages:
       '@vue/runtime-dom': 3.2.39
       '@vue/server-renderer': 3.2.39_vue@3.2.39
       '@vue/shared': 3.2.39
+
+  /w3c-keyname/2.2.6:
+    resolution: {integrity: sha512-f+fciywl1SJEniZHD6H+kUO8gOnwIr7f4ijKA6+ZvJFjeGi1r4PDLl53Ayud9O/rk64RqgoQine0feoeOU0kXg==}
+    dev: false
 
   /webidl-conversions/4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
@@ -3626,6 +3814,10 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+  /xmind-embed-viewer/1.0.7:
+    resolution: {integrity: sha512-3Bg7V9wy90+8gvc8xbZziWtAfuXFISiAJyIJI1NGKBClJc16dXhzjme2VX6vzwisonEUZAE9Pf7ixlm9xP4bPA==}
+    dev: false
 
   /zooming/2.1.1:
     resolution: {integrity: sha512-Z38dkZRQsFNBE67+xDBQLNKMs5J1Gc+s3/zO6iezTrC24VYLJV7YPBdBDJmiLhff5qa6Awxv4wsjqx3oYz2MYA==}
