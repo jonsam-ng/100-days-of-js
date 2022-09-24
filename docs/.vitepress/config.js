@@ -45,10 +45,12 @@ const themeConfig = {
 		message: "Released under the MIT License.",
 		copyright: "Copyright © 2022-present, made by Jonsam NG with 💖",
 	},
-	editLink: {
-		pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
-		text: "Edit this page on GitHub",
-	},
+	editLink: false,
+	// {
+	// 	pattern:
+	// 		"https://github.com/jonsam-ng/100-day-of-js-enhance/edit/master/docs/:path",
+	// 	text: "Edit this page on GitHub",
+	// },
 	lastUpdatedText: "最近更新",
 	docFooter: {},
 	outlineTitle: "🔗 内容纲要：",

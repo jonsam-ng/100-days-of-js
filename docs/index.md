@@ -4,7 +4,7 @@ layout: home
 hero:
   name: 100 days of JavaScript
   text: One hundred days to enhance your skills on JavaScript.
-  tagline: DSA/Web/Interviews
+  tagline: CS/DSA/Web/Interviews
   actions:
     - theme: brand
       text: Get Started
