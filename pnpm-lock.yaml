@@ -11,9 +11,9 @@ specifiers:
   ismobilejs: ^1.1.1
   qrcode.vue: ^3.3.3
   stylus: ^0.59.0
-  vite-plugin-pwa: ^0.13.0
+  vite-plugin-pwa: ^0.13.1
   vitepress: 1.0.0-alpha.16
-  vitepress-auto-nav-sidebar: ^0.0.4
+  vitepress-auto-nav-sidebar: ^0.0.5
   vitepress-plugin-search: 1.0.4-alpha.8
   vue: ^3.2.39
   vue-codemirror: ^6.0.2
@@ -42,7 +42,7 @@ devDependencies:
   stylus: 0.59.0
   vite-plugin-pwa: 0.13.1
   vitepress: 1.0.0-alpha.16_stylus@0.59.0
-  vitepress-auto-nav-sidebar: 0.0.4
+  vitepress-auto-nav-sidebar: 0.0.5
   vitepress-plugin-search: 1.0.4-alpha.8_fx37errycfmgjebbiquxp5ivxe
   vue: 3.2.39
 
@@ -3566,8 +3566,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress-auto-nav-sidebar/0.0.4:
-    resolution: {integrity: sha512-rcaPhZdRkJWAvkORR4ES5QvTwLMMHqVmSdC3fkq/HAuIw3XSHzROQi62a2HbiUsfi0styFxY7o6VBdtJk8cMDg==}
+  /vitepress-auto-nav-sidebar/0.0.5:
+    resolution: {integrity: sha512-UeJw60LEgVaDUoS3u3u9W+dPyinl8p6aMlDGNzEVwa5NP0tsSSwqiSZX2PcJ81J8KL6sYBmhbIdEUDt/6iFuPA==}
     dev: true
 
   /vitepress-plugin-search/1.0.4-alpha.8_fx37errycfmgjebbiquxp5ivxe:
