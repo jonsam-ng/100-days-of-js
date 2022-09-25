@@ -1,7 +1,7 @@
 <template>
 	<div style="display: flex; flex-flow: column nowrap">
 		<div class="container">
-			<codemirror
+			<component
 				style="overflow: hidden; height: 300px; flex: 1; margin-right: 20px"
 				v-model="editableCode"
 				placeholder="Edit code here..."
@@ -9,6 +9,8 @@
 				:indent-with-tab="true"
 				:tabSize="4"
 				:extensions="extensions"
+				v-if="dynamicComponent"
+				:is="dynamicComponent"
 			/>
 			<div class="btn__container">
 				<button class="button" style="margin-bottom: 10px" @click="reset">
@@ -28,9 +30,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, getCurrentInstance } from "vue";
+import { ref, onMounted, getCurrentInstance, shallowRef } from "vue";
 import { html_decode } from "./utils/html-transform.js";
-import { Codemirror } from "vue-codemirror";
 import { html } from "@codemirror/lang-html";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
@@ -65,7 +66,7 @@ const subApp = ref(null);
 
 const execJs = async () => {
 	await new Function(editableCode.value)();
-	warnText.value = "Tip: 你可在控制台看到代码输出！";
+	warnText.value = "提示: 请在控制台查看代码输出！";
 };
 
 const removeFrameContent = () => {
@@ -100,7 +101,14 @@ const execHtml = () => {
 	warnText.value = "Tip: 你可在下方看到预览效果！";
 };
 
+const dynamicComponent = shallowRef(null);
+
 onMounted(() => {
+	const instance = getCurrentInstance();
+	import("vue-codemirror").then((m) => {
+		if (!instance) return;
+		dynamicComponent.value = m.default.Codemirror;
+	});
 	if (isHtml()) {
 		execHtml();
 	}
@@ -126,7 +134,7 @@ const exec = async () => {
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-end;
-	padding: 30px 10px;
+	padding: 30px 0;
 	position: relative;
 }
 

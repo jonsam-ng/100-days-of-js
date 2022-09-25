@@ -4,7 +4,6 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { XMindEmbedViewer } from "xmind-embed-viewer";
 
 const props = defineProps({
 	src: {
@@ -24,24 +23,24 @@ const props = defineProps({
 const xmind = ref(null);
 
 onMounted(() => {
-	const viewer = new XMindEmbedViewer({
-		el: xmind.value,
-	});
-	// const url = new URL(props.src, window.location.href)
-	fetch(props.src)
-		// import(props.src)
-		// import(url.href)
-		.then((res) => {
-			return res.arrayBuffer();
-		})
-		.then((file) => {
-			return viewer.load(file);
+	import("xmind-embed-viewer").then((m) => {
+		const XMindEmbedViewer = m.XMindEmbedViewer;
+		const viewer = new XMindEmbedViewer({
+			el: xmind.value,
 		});
+		fetch(props.src)
+			.then((res) => {
+				return res.arrayBuffer();
+			})
+			.then((file) => {
+				return viewer.load(file);
+			});
 
-	viewer.addEventListener("map-ready", () => {
-		viewer.setZoomScale(60);
-		viewer.setStyles({
-			width: "100%",
+		viewer.addEventListener("map-ready", () => {
+			viewer.setZoomScale(60);
+			viewer.setStyles({
+				width: "100%",
+			});
 		});
 	});
 });

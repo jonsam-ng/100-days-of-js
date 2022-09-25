@@ -23,7 +23,7 @@
 
 ## Template Features
 
-The site is built on [Vitepress](https://vitepress.vuejs.org/), you can use this repo as a template to build your owns wonderful sites.Feel free to click "Use his template".
+The site is built on [Vitepress](https://vitepress.vuejs.org/), you can use this repo as a template to build your owns wonderful sites.Feel free to click "Use this template".
 
 These are features of this template:
 

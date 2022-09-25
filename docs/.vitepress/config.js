@@ -67,6 +67,7 @@ export default defineConfig({
 	appearance: true,
 	base: "/",
 	lastUpdated: true,
+	assetsInclude: ["**/*.xmind"],
 	head: [
 		["link", { rel: "shortcut icon", href: "/logo/favicon.ico", sizes: "any" }],
 		["meta", { name: "referrer", content: "no-referrer-when-downgrade" }],
@@ -112,6 +113,13 @@ export default defineConfig({
 						const title = tokens[idx].children[0].content;
 						const url = tokens[idx].attrs[0][1];
 						return `<XMindViewer src="${url}" title="${title}"></XMindViewer>`;
+					} else {
+						const PUBLIC_PREFIX = "/docs/.vitepress/public";
+						const token = tokens[idx];
+						const srcIndex = token.attrIndex("src");
+						const url = token.attrs[srcIndex][1].replace(PUBLIC_PREFIX, "");
+						const caption = md.utils.escapeHtml(token.content);
+						return `<img data-zooming src="${url}" alt="${caption}" />`;
 					}
 					return handleImage(tokens, idx, options, env, self);
 				};
