@@ -17,7 +17,7 @@
 ## Content
 
 - 💻 [CS:Computer Science related](https://100js.jonsam.site/CS/开始上手)
-- 🧮 [DSA: Data Structure and Algorism](https://100js.jonsam.site/DSA/开始上手)
+- 🧮 [DSA: Data Structures and Algorithms](https://100js.jonsam.site/DSA/开始上手)
 - 🔭 [WEB: Web things about Frameworks and ToolChains](https://100js.jonsam.site/WEB/开始上手)
 - 💡 [Interview: Interview Q&A and Experiences](https://100js.jonsam.site/Interview/开始上手)
 
