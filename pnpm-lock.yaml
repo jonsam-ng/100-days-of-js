@@ -9,6 +9,13 @@ specifiers:
   codemirror: ^6.0.1
   gray-matter: ^4.0.3
   ismobilejs: ^1.1.1
+  markdown-it-attrs: ^4.1.4
+  markdown-it-header-sections: ^1.0.0
+  markdown-it-html5-media: ^0.7.1
+  markdown-it-imsize: ^2.0.1
+  markdown-it-include: ^2.0.0
+  markdown-it-pangu: ^1.0.2
+  markdown-it-task-lists: ^2.1.1
   qrcode.vue: ^3.3.3
   stylus: ^0.59.0
   vite-plugin-pwa: ^0.13.1
@@ -39,6 +46,13 @@ dependencies:
 devDependencies:
   chalk: 4.1.2
   gray-matter: 4.0.3
+  markdown-it-attrs: 4.1.4
+  markdown-it-header-sections: 1.0.0
+  markdown-it-html5-media: 0.7.1
+  markdown-it-imsize: 2.0.1
+  markdown-it-include: 2.0.0
+  markdown-it-pangu: 1.0.2
+  markdown-it-task-lists: 2.1.1
   stylus: 0.59.0
   vite-plugin-pwa: 0.13.1
   vitepress: 1.0.0-alpha.16_stylus@0.59.0
@@ -1857,6 +1871,10 @@ packages:
       sprintf-js: 1.0.3
     dev: true
 
+  /argparse/2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: true
+
   /array-includes/3.1.5:
     resolution: {integrity: sha512-iSDYZMMyTPkiFasVqfuAQnWAYcvO/SeBSCGKePoEthjp4LEMTe4uLc7b025o4jAZpHhihh8xPo99TNWUWWkGDQ==}
     engines: {node: '>= 0.4'}
@@ -2156,6 +2174,14 @@ packages:
 
   /electron-to-chromium/1.4.261:
     resolution: {integrity: sha512-fVXliNUGJ7XUVJSAasPseBbVgJIeyw5M1xIkgXdTSRjlmCqBbiSTsEdLOCJS31Fc8B7CaloQ/BFAg8By3ODLdg==}
+    dev: true
+
+  /entities/1.1.2:
+    resolution: {integrity: sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==}
+    dev: true
+
+  /entities/2.1.0:
+    resolution: {integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==}
     dev: true
 
   /es-abstract/1.20.3:
@@ -2940,6 +2966,18 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /linkify-it/2.2.0:
+    resolution: {integrity: sha512-GnAl/knGn+i1U/wjBz3akz2stz+HrHLsxMwHQGofCDfPvlf+gDKN58UtfmUquTY4/MXeE2x7k19KQmeoZi94Iw==}
+    dependencies:
+      uc.micro: 1.0.6
+    dev: true
+
+  /linkify-it/3.0.3:
+    resolution: {integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==}
+    dependencies:
+      uc.micro: 1.0.6
+    dev: true
+
   /load-script/1.0.0:
     resolution: {integrity: sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==}
     dev: false
@@ -2960,6 +2998,72 @@ packages:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
       sourcemap-codec: 1.4.8
+
+  /markdown-it-attrs/4.1.4:
+    resolution: {integrity: sha512-53Zfv8PTb6rlVFDlD106xcZHKBSsRZKJ2IW/rTxEJBEVbVaoxaNsmRkG0HXfbHl2SK8kaxZ2QKqdthWy/QBwmA==}
+    engines: {node: '>=6'}
+    peerDependencies:
+      markdown-it: '>= 9.0.0'
+    dev: true
+
+  /markdown-it-header-sections/1.0.0:
+    resolution: {integrity: sha512-GndZbs+iTo7NkNRf00VmT4mtFql7VoJNnSwB7hP5xkomGUTdQ78siVZIuRco4fbiWJd45JUemLxUS9vO8luPSA==}
+    dev: true
+
+  /markdown-it-html5-media/0.7.1:
+    resolution: {integrity: sha512-PfKFD+K1Vpw8+OwfV/VO6Y5Sy1xSS/F1BgbW8Q281LylBBoW47fm4k9Zh0IpsPpM3/HObBD6rooMTaMVlC3PqA==}
+    engines: {node: '>=10.0'}
+    dependencies:
+      markdown-it: 12.3.2
+    dev: true
+
+  /markdown-it-imsize/2.0.1:
+    resolution: {integrity: sha512-5SH90ademqcR8ifQCBXRCfIR4HGfZZOh5pO0j2TglulfSQH+SBXM4Iw/QlTUbSoUwVZArCYgECoMvktDS2kP3w==}
+    dev: true
+
+  /markdown-it-include/2.0.0:
+    resolution: {integrity: sha512-wfgIX92ZEYahYWiCk6Jx36XmHvAimeHN420csOWgfyZjpf171Y0xREqZWcm/Rwjzyd0RLYryY+cbNmrkYW2MDw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      markdown-it: '>=8.4.2'
+    dev: true
+
+  /markdown-it-pangu/1.0.2:
+    resolution: {integrity: sha512-rssyYaMKXRLMpQIUgX01VE1KYOHhlnc4t5zGTI2zgXDpE88eQz8hywa0iSzoFm3eb5CYzFWazDKdUbnyZvW0SQ==}
+    dependencies:
+      markdown-it: 8.4.2
+      pangu: 4.0.7
+    dev: true
+
+  /markdown-it-task-lists/2.1.1:
+    resolution: {integrity: sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==}
+    dev: true
+
+  /markdown-it/12.3.2:
+    resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 2.1.0
+      linkify-it: 3.0.3
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: true
+
+  /markdown-it/8.4.2:
+    resolution: {integrity: sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==}
+    hasBin: true
+    dependencies:
+      argparse: 1.0.10
+      entities: 1.1.2
+      linkify-it: 2.2.0
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: true
+
+  /mdurl/1.0.1:
+    resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+    dev: true
 
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -3052,6 +3156,11 @@ packages:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
       wrappy: 1.0.2
+    dev: true
+
+  /pangu/4.0.7:
+    resolution: {integrity: sha512-weZKJIwwy5gjt4STGVUH9bix3BGk7wZ2ahtIypwe3e/mllsrIZIvtfLx1dPX56GcpZFOCFKmeqI1qVuB9enRzA==}
+    hasBin: true
     dev: true
 
   /path-is-absolute/1.0.1:
@@ -3456,6 +3565,10 @@ packages:
   /type/2.7.2:
     resolution: {integrity: sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==}
     dev: false
+
+  /uc.micro/1.0.6:
+    resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
+    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
