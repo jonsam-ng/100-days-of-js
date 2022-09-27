@@ -1,1 +1,11 @@
+html,
+html body {
+	font-size: 14px;
+}
+.aside .outline-link {
+	font-size: 12px;
+}
 
+.vp-doc h4 {
+	margin-top: 10px;
+}
