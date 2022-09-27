@@ -123,7 +123,6 @@ export default defineConfig({
 				const handleImage = md.renderer.rules.image;
 				md.renderer.rules.image = (tokens, idx, options, env, self) => {
 					const url = tokens[idx].attrs[0][1];
-					console.log("==>", { url });
 					if (/.xmind$/.test(url)) {
 						const title = tokens[idx].children[0].content;
 						const url = tokens[idx].attrs[0][1];
