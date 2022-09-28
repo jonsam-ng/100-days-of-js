@@ -10,10 +10,12 @@ specifiers:
   gray-matter: ^4.0.3
   ismobilejs: ^1.1.1
   markdown-it-attrs: ^4.1.4
+  markdown-it-decorate: ^1.2.2
   markdown-it-header-sections: ^1.0.0
   markdown-it-html5-media: ^0.7.1
   markdown-it-imsize: ^2.0.1
   markdown-it-include: ^2.0.0
+  markdown-it-mark: ^3.0.1
   markdown-it-pangu: ^1.0.2
   markdown-it-task-lists: ^2.1.1
   qrcode.vue: ^3.3.3
@@ -36,6 +38,7 @@ dependencies:
   '@codemirror/theme-one-dark': 6.1.0
   codemirror: 6.0.1
   ismobilejs: 1.1.1
+  markdown-it-decorate: 1.2.2
   qrcode.vue: 3.3.3_vue@3.2.39
   vue-codemirror: 6.1.1_4qg5j2btbutllz27qbs3lnu7tu
   vue-core-video-player: 0.2.0
@@ -51,6 +54,7 @@ devDependencies:
   markdown-it-html5-media: 0.7.1
   markdown-it-imsize: 2.0.1
   markdown-it-include: 2.0.0
+  markdown-it-mark: 3.0.1
   markdown-it-pangu: 1.0.2
   markdown-it-task-lists: 2.1.1
   stylus: 0.59.0
@@ -3006,6 +3010,10 @@ packages:
       markdown-it: '>= 9.0.0'
     dev: true
 
+  /markdown-it-decorate/1.2.2:
+    resolution: {integrity: sha512-7BFWJ97KBXgkaPVjKHISQnhSW8RWQ7yRNXpr8pPUV2Rw4GHvGrgb6CelKCM+GSijP0uSLCAVfc/knWIz+2v/Sw==}
+    dev: false
+
   /markdown-it-header-sections/1.0.0:
     resolution: {integrity: sha512-GndZbs+iTo7NkNRf00VmT4mtFql7VoJNnSwB7hP5xkomGUTdQ78siVZIuRco4fbiWJd45JUemLxUS9vO8luPSA==}
     dev: true
@@ -3026,6 +3034,10 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       markdown-it: '>=8.4.2'
+    dev: true
+
+  /markdown-it-mark/3.0.1:
+    resolution: {integrity: sha512-HyxjAu6BRsdt6Xcv6TKVQnkz/E70TdGXEFHRYBGLncRE9lBFwDNLVtFojKxjJWgJ+5XxUwLaHXy+2sGBbDn+4A==}
     dev: true
 
   /markdown-it-pangu/1.0.2:

@@ -7,6 +7,8 @@ import IMSizePlugin from "markdown-it-imsize";
 import { html5Media as MediaPlugin } from "markdown-it-html5-media";
 import SectionPlugin from "markdown-it-header-sections";
 import AttrPlugin from "markdown-it-attrs";
+import MarkPlugin from "markdown-it-mark";
+import DecoratePlugin from "markdown-it-decorate";
 
 /** see https://www.npmjs.com/package/vitepress-auto-nav-sidebar */
 const { sidebar, nav } = AutoNavPlugin({
@@ -149,6 +151,8 @@ export default defineConfig({
 				audioAttrs: "class=h5-audio data-media controls",
 			});
 			// md.use(SectionPlugin);
+			md.use(MarkPlugin);
+			md.use(DecoratePlugin);
 		},
 	},
 	themeConfig,
