@@ -23,7 +23,7 @@ specifiers:
   vite-plugin-pwa: ^0.13.1
   vitepress: 1.0.0-alpha.16
   vitepress-auto-nav-sidebar: ^0.0.5
-  vitepress-plugin-search: 1.0.4-alpha.8
+  vitepress-plugin-search: 1.0.4-alpha.11
   vue: ^3.2.39
   vue-codemirror: ^6.0.2
   vue-core-video-player: ^0.2.0
@@ -61,7 +61,7 @@ devDependencies:
   vite-plugin-pwa: 0.13.1
   vitepress: 1.0.0-alpha.16_stylus@0.59.0
   vitepress-auto-nav-sidebar: 0.0.5
-  vitepress-plugin-search: 1.0.4-alpha.8_fx37errycfmgjebbiquxp5ivxe
+  vitepress-plugin-search: 1.0.4-alpha.11_fx37errycfmgjebbiquxp5ivxe
   vue: 3.2.39
 
 packages:
@@ -3695,8 +3695,8 @@ packages:
     resolution: {integrity: sha512-UeJw60LEgVaDUoS3u3u9W+dPyinl8p6aMlDGNzEVwa5NP0tsSSwqiSZX2PcJ81J8KL6sYBmhbIdEUDt/6iFuPA==}
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.8_fx37errycfmgjebbiquxp5ivxe:
-    resolution: {integrity: sha512-ej27VG/cQrr325eYu8ZtTtWrGoHjqOVTw6UHWOmV1htAnGhxdh5sDlUQk/O+/yVy0BSTCGKCRqvVuvhHv0MrEA==}
+  /vitepress-plugin-search/1.0.4-alpha.11_fx37errycfmgjebbiquxp5ivxe:
+    resolution: {integrity: sha512-fKJIpPj6QGQeXda31Dx5f9DtCYnPVHKQVsOUpnJOzahWHPPgGofslwwvwaeRMWIGvpslxi/m4RVK6C+ydqKukA==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
       vite: 2 || 3
