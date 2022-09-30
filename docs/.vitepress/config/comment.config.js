@@ -9,8 +9,9 @@ export default ({ window, frontmatter, title, relativePath }) => ({
 	language: "zh-CN",
 	distractionFreeMode: true,
 	pagerDirection: "last",
-	id: "<%- (title || relativePath).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-	title: "「评论」<%- title %>", // GitHub issue 的标题
-	labels: ["Gitalk", "Comment"],
-	body: "页面：<%- window.location.origin + (relativePath || window.location.pathname) %>", // GitHub issue 的内容
+	id: decodeURI(window.location.pathname),
+	// id: "<%- (title || relativePath).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+	// title: "「评论」<%- title %>", // GitHub issue 的标题
+	// labels: ["Gitalk", "Comment"],
+	// body: "页面：<%- window.location.origin + (relativePath || window.location.pathname) %>", // GitHub issue 的内容
 });
