@@ -13,6 +13,4 @@ export default ({ window, frontmatter, title, relativePath }) => ({
 	title: "「评论」<%- title %>", // GitHub issue 的标题
 	labels: ["Gitalk", "Comment"],
 	body: "页面：<%- window.location.origin + (relativePath || window.location.pathname) %>", // GitHub issue 的内容
-	proxy:
-		"https://cors-server-ecru.vercel.app/github_access_token/https://github.com/login/oauth/access_token",
 });
