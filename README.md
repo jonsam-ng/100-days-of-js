@@ -39,7 +39,7 @@ These are features of this template:
 - 💻 **Comment supported**：comment is powered by gitalk.
 - 🎥 **Back To Top is supported**：you can back to top on docs page.
 - 📤 
-- ⚡️ Great performance on development mode - thanks for vitepress's magic speed.
+- ⚡️ **Great performance on development mode** - thanks for vitepress's magic speed.
 - 🛠 **Outbox CI/CD** - outbox CI/CD for github pages.
 
 Click [here](https://100js.jonsam.site/示例) to view feature demos.Feel free to make your ideas real.

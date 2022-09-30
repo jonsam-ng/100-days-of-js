@@ -46,12 +46,12 @@ export default ({ app, router }) => ({
 	mounted() {
 		if (isMounted) return;
 		isMounted = true;
-		this.mountComment();
+		this.mountBack2Top();
 		const route = useRoute();
 		watch(
 			() => route.path,
 			() => {
-				this.mountComment();
+				this.mountBack2Top();
 			}
 		);
 	},
