@@ -6,7 +6,7 @@ export default {
 	owner: "jonsam-ng",
 	admin: ["jonsam-ng"],
 	githubID: "jonsam-ng",
-	id: decodeURI(window.location.pathname),
+	// id: decodeURI(window.location.pathname),
 	language: "zh-CN",
 	distractionFreeMode: true,
 	pagerDirection: "last",

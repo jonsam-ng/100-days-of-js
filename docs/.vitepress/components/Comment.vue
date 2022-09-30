@@ -4,14 +4,16 @@
 
 <script>
 import commentConfig from "../config/comment.config";
-import Gitalk from "gitalk";
 import "gitalk/dist/gitalk.css";
 
 export default {
 	name: "Comment",
 	mounted() {
-		const gitalk = new Gitalk(commentConfig);
-		gitalk.render("comment-container");
+		import("gitalk").then((m) => {
+			const Gitalk = m.default;
+			const gitalk = new Gitalk(commentConfig);
+			gitalk.render("comment-container");
+		});
 	},
 };
 </script>
