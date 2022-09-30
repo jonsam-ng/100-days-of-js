@@ -14,4 +14,6 @@ export default {
 	// title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
 	// labels: ["Gitalk", "Comment"],
 	// body: "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
+	proxy:
+		"https://sp.jonsam-ng.workers.dev/https://github.com/login/oauth/access_token",
 };
