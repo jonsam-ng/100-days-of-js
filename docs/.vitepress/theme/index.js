@@ -12,6 +12,7 @@ import XMindViewer from "../components/XMindViewer.vue";
 import BackToTop from "../components/BackToTop.vue";
 import Comment from "../components/Comment.vue";
 import createCommentMixin from "../plugins/comment";
+import createBack2topMixin from "../plugins/back2top";
 import "@cloudgeek/vue3-video-player/dist/vue3-video-player.css";
 import "./custom.css";
 
@@ -31,6 +32,7 @@ export default {
 		app.mixin(zoomMixin);
 		app.mixin(createQrcodeMixin({ app }));
 		app.mixin(createCommentMixin({ app, router }));
+		app.mixin(createBack2topMixin({ app, router }));
 	},
 	setup() {},
 };

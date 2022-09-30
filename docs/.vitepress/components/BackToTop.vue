@@ -89,11 +89,11 @@ export default {
   right: 2.5rem;
   width: 2rem;
   color: var(--accent-color);
-  z-index: 1;
+  z-index: 9999;
 }
 
 .go-to-top:hover {
-  color: var(--accent-color);
+  color: var(--vp-c-brand);
 }
 
 @media (max-width: 959px) {

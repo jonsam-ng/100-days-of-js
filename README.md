@@ -36,8 +36,8 @@ These are features of this template:
 - 🧮 **PWA available** - outbox PWA supported with [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa).
 - 📰 **Local docs search available** - outbox search supported with [SearchPlugin](https://www.npmjs.com/package/vitepress-plugin-search).
 - 🌟 **Scan QRCode to read on mobile supported** - scan QRCode of pages to supported mobile reading.
-- 💻 
-- 🎥 
+- 💻 **Comment supported**：comment is powered by gitalk.
+- 🎥 **Back To Top is supported**：you can back to top on docs page.
 - 📤 
 - ⚡️ Great performance on development mode - thanks for vitepress's magic speed.
 - 🛠 **Outbox CI/CD** - outbox CI/CD for github pages.

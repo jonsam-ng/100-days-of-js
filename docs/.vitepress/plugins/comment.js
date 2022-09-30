@@ -5,6 +5,7 @@ import commentConfig from "../config/comment.config";
 let isMounted = false;
 let gitalk = null;
 const containerId = "comment-container";
+let back2Top = null;
 
 export default ({ app, router }) => ({
 	methods: {
