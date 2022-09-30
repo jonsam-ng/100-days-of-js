@@ -3,23 +3,21 @@
 </template>
 
 <script>
-import commentConfig from "../config/comment.config";
 import "gitalk/dist/gitalk.css";
 
 export default {
 	name: "Comment",
-	mounted() {
-		import("gitalk").then((m) => {
-			const Gitalk = m.default;
-			const gitalk = new Gitalk(commentConfig);
-			gitalk.render("comment-container");
-		});
-	},
+	mounted() {},
 };
 </script>
 
-<style>
+<style scoped>
 #comment-container {
-	border: 1px solid #ccc;
+	border-top: 1px solid var(--vp-c-divider-light-2);
+	margin-top: 20px;
+}
+
+#comment-container :deep(.gt-container) {
+	font-size: 13px !important;
 }
 </style>
