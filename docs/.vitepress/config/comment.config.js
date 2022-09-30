@@ -14,5 +14,5 @@ export default ({ window, frontmatter, title, relativePath }) => ({
 	labels: ["Gitalk", "Comment"],
 	body: "页面：<%- window.location.origin + (relativePath || window.location.pathname) %>", // GitHub issue 的内容
 	proxy:
-		"https://sp.jonsam-ng.workers.dev/https://github.com/login/oauth/access_token",
+		"https://cors-server-ecru.vercel.app/github_access_token/https://github.com/login/oauth/access_token",
 });
