@@ -7,7 +7,7 @@ specifiers:
   '@codemirror/theme-one-dark': ^6.0.0
   chalk: ^4.0.1
   codemirror: ^6.0.1
-  gitalk: ^1.8.0
+  gitalk: ^1.7.2
   gray-matter: ^4.0.3
   ismobilejs: ^1.1.1
   lodash.debounce: ^4.0.8
