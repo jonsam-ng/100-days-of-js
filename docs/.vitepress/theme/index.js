@@ -1,5 +1,4 @@
 import DefaultTheme from "vitepress/theme";
-import LastReadingPopup from "../components/LastReadingPopup.vue";
 import Badge from "../components/Badge.vue";
 import Badges from "../components/Badges.vue";
 import Pdf from "../components/Pdf.vue";
@@ -14,6 +13,7 @@ import Comment from "../components/Comment.vue";
 import createCommentMixin from "../plugins/comment";
 import createBack2topMixin from "../plugins/back2top";
 import createProgressMixin from "../plugins/nprogress";
+import createGlobalMixin from "../plugins/global";
 import "@cloudgeek/vue3-video-player/dist/vue3-video-player.css";
 import "./custom.css";
 import "./nprogress.styl";
@@ -21,7 +21,6 @@ import "./nprogress.styl";
 export default {
 	...DefaultTheme,
 	enhanceApp: async ({ app, router, siteData }) => {
-		app.component(LastReadingPopup.name, LastReadingPopup);
 		app.component(Badge.name, Badge);
 		app.component(Badges.name, Badges);
 		app.component(Pdf.name, Pdf);
@@ -36,6 +35,7 @@ export default {
 		app.mixin(createCommentMixin({ app, router }));
 		app.mixin(createBack2topMixin({ app, router }));
 		app.mixin(createProgressMixin({ app, router }));
+		app.mixin(createGlobalMixin({ app, router }));
 	},
 	setup() {},
 };
