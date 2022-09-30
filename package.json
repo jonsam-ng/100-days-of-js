@@ -44,6 +44,7 @@
 		"ismobilejs": "^1.1.1",
 		"lodash.debounce": "^4.0.8",
 		"markdown-it-decorate": "^1.2.2",
+		"nprogress": "^0.2.0",
 		"qrcode.vue": "^3.3.3",
 		"vue-codemirror": "^6.0.2",
 		"vue-core-video-player": "^0.2.0",

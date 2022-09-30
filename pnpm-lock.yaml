@@ -20,6 +20,7 @@ specifiers:
   markdown-it-mark: ^3.0.1
   markdown-it-pangu: ^1.0.2
   markdown-it-task-lists: ^2.1.1
+  nprogress: ^0.2.0
   qrcode.vue: ^3.3.3
   stylus: ^0.59.0
   vite-plugin-pwa: ^0.13.1
@@ -43,6 +44,7 @@ dependencies:
   ismobilejs: 1.1.1
   lodash.debounce: 4.0.8
   markdown-it-decorate: 1.2.2
+  nprogress: 0.2.0
   qrcode.vue: 3.3.3_vue@3.2.39
   vue-codemirror: 6.1.1_4qg5j2btbutllz27qbs3lnu7tu
   vue-core-video-player: 0.2.0
@@ -3238,7 +3240,6 @@ packages:
 
   /nprogress/0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
-    dev: true
 
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}

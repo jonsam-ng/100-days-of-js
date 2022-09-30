@@ -13,8 +13,10 @@ import BackToTop from "../components/BackToTop.vue";
 import Comment from "../components/Comment.vue";
 import createCommentMixin from "../plugins/comment";
 import createBack2topMixin from "../plugins/back2top";
+import createProgressMixin from "../plugins/nprogress";
 import "@cloudgeek/vue3-video-player/dist/vue3-video-player.css";
 import "./custom.css";
+import "./nprogress.styl";
 
 export default {
 	...DefaultTheme,
@@ -33,6 +35,7 @@ export default {
 		app.mixin(createQrcodeMixin({ app }));
 		app.mixin(createCommentMixin({ app, router }));
 		app.mixin(createBack2topMixin({ app, router }));
+		app.mixin(createProgressMixin({ app, router }));
 	},
 	setup() {},
 };

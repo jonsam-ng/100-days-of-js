@@ -7,21 +7,21 @@ let back2Top = null;
 
 export default ({ app, router }) => ({
 	methods: {
-		unmountComment() {
+		unmountBack2Top() {
 			this.$nextTick(() => {
 				const container = document.getElementById(containerId);
 				if (!container) return;
 				container.remove();
 			});
 		},
-		mountComment() {
+		mountBack2Top() {
 			const b2tComponent = app._context.components.BackToTop;
 			const docData = router.route.data || {};
 			const { frontmatter } = docData || {};
 			const { layout = "doc", back2top = true } = frontmatter;
 			const enable = layout === "doc" && back2top;
 			if (!b2tComponent || !enable) {
-				this.unmountComment();
+				this.unmountBack2Top();
 				return;
 			}
 
