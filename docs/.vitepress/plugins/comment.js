@@ -19,7 +19,8 @@ export default ({ app, router }) => ({
 		},
 		mountComment() {
 			const commentComponent = app._context.components.Comment;
-			const frontmatter = router.route.data.frontmatter || {};
+			const docData = router.route.data || {};
+			const { frontmatter, title, relativePath } = docData || {};
 			const { layout = "doc", comment = true } = frontmatter;
 			const enable = layout === "doc" && comment;
 			if (!commentComponent || !enable) {
@@ -40,7 +41,9 @@ export default ({ app, router }) => ({
 				}
 				import("gitalk").then((m) => {
 					const Gitalk = m.default;
-					const gk = new Gitalk(commentConfig);
+					const gk = new Gitalk(
+						commentConfig({ window, frontmatter, title, relativePath })
+					);
 					gk.render(containerId);
 					gitalk = gk;
 				});
