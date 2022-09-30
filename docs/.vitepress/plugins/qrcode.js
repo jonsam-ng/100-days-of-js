@@ -1,4 +1,4 @@
-import { nextTick, defineComponent, createApp } from "vue";
+import { createApp } from "vue";
 import isMobile from "ismobilejs";
 
 // 判断是否绑定时间是否绑定成功
