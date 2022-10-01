@@ -1,5 +1,5 @@
 <template>
-	<div ref="xmind"></div>
+	<div ref="xmind" class="mindWrapper"></div>
 </template>
 
 <script setup>
@@ -46,4 +46,8 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.mindWrapper {
+	max-width: 100%;
+}
+</style>

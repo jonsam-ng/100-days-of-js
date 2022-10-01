@@ -3,7 +3,7 @@ import { watch, createApp } from "vue";
 import commentConfig from "../config/comment.config";
 
 let isMounted = false;
-let gitalk = null;
+let Gitalk = null;
 const containerId = "comment-container";
 let back2Top = null;
 
@@ -39,17 +39,19 @@ export default ({ app, router }) => ({
 				commentBlock.id = containerId;
 				footer.appendChild(commentBlock);
 				createApp(commentComponent).mount(commentBlock);
-				if (gitalk) {
-					gitalk.render(containerId);
-					return;
-				}
-				import("gitalk").then((m) => {
-					const Gitalk = m.default;
+				const renderGitalk = () => {
 					const gk = new Gitalk(
 						commentConfig({ window, frontmatter, title, relativePath })
 					);
 					gk.render(containerId);
-					gitalk = gk;
+				};
+				if (Gitalk) {
+					renderGitalk();
+					return;
+				}
+				import("gitalk").then((m) => {
+					Gitalk = m.default;
+					renderGitalk();
 				});
 			});
 		},
