@@ -2,6 +2,12 @@
 	<div ref="xmind" class="mindWrapper"></div>
 </template>
 
+<script>
+export default {
+	name: "XMindViewer",
+};
+</script>
+
 <script setup>
 import { onMounted, ref } from "vue";
 

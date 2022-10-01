@@ -38,9 +38,10 @@ These are features of this template:
 - 🌟 **Scan QRCode to read on mobile supported** - scan QRCode of pages to supported mobile reading.
 - 💻 **Comment supported**：comment is powered by gitalk.
 - 🎥 **Back To Top is supported**：you can back to top on docs page.
-- 📤 
+- 📤 **Back to comment and Back to anchor supported**.
 - ⚡️ **Great performance on development mode** - thanks for vitepress's magic speed.
 - 🛠 **Outbox CI/CD** - outbox CI/CD for github pages.
+- 💐 **Bilibili video embed supported**：embed bilibili video with `<Bilibili/>` tag.
 
 Click [here](https://100js.jonsam.site/示例) to view feature demos.Feel free to make your ideas real.
 

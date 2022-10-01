@@ -29,8 +29,20 @@
 	</div>
 </template>
 
+<script>
+export default {
+	name: "RunCode",
+};
+</script>
+
 <script setup>
-import { ref, onMounted, getCurrentInstance, shallowRef } from "vue";
+import {
+	ref,
+	onMounted,
+	getCurrentInstance,
+	shallowRef,
+	defineComponent,
+} from "vue";
 import { html_decode } from "./utils/html-transform.js";
 import { html } from "@codemirror/lang-html";
 import { javascript } from "@codemirror/lang-javascript";

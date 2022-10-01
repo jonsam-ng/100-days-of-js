@@ -8,3 +8,5 @@ export function scrollTo(id, offset = 0) {
 		behavior: "smooth",
 	});
 }
+
+export const isFunction = (f) => typeof f === "function";
