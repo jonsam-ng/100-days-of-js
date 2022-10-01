@@ -33,7 +33,10 @@ export default ({ app, router }) => ({
 			this.$nextTick(() => {
 				const footer = document.querySelector(".VPDoc .VPDocFooter");
 				if (!footer) return;
-				const commentBlock = document.createElement("DIV");
+				const container = document.getElementById(containerId);
+				if (container) container.innerHTML = "";
+				const commentBlock = container ?? document.createElement("DIV");
+				commentBlock.id = containerId;
 				footer.appendChild(commentBlock);
 				createApp(commentComponent).mount(commentBlock);
 				if (gitalk) {

@@ -2,6 +2,9 @@ html,
 html body {
 	font-size: 14px;
 }
+.VPDoc .aside {
+	padding-right: 20px;
+}
 .aside .outline-link {
 	font-size: 12px;
 }

@@ -1,5 +1,6 @@
 import { useRoute } from "vitepress";
 import { watch, createApp } from "vue";
+import { scrollTo } from "../util";
 
 const globalUIComponents = [];
 
@@ -39,6 +40,15 @@ export default ({ app, router }) => ({
 			});
 		},
 		mountComponents() {
+			// auto just to hash location
+			const hash = decodeURIComponent(window.location.hash.slice(1));
+			if (hash) {
+				this.$nextTick(() => {
+					const pos = document.getElementById(hash);
+					if (pos) scrollTo(hash, 73);
+					console.info(`navigate to anchor ${hash}.`);
+				});
+			}
 			globalUIComponents.forEach((con) => this.mountComponent(con));
 		},
 	},

@@ -34,7 +34,7 @@ export default ({ app, router }) => ({
 				const block = container ?? document.createElement("DIV");
 				block.id = containerId;
 				document.body.appendChild(block);
-				back2Top = createApp(b2tComponent);
+				back2Top = createApp(b2tComponent, { router });
 				back2Top.mount(block);
 			});
 		},
