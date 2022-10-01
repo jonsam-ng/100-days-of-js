@@ -44,6 +44,7 @@ export default ({ app, router }) => ({
 						commentConfig({ window, frontmatter, title, relativePath })
 					);
 					gk.render(containerId);
+					console.info(`render gitalk for ${title}.`);
 				};
 				if (Gitalk) {
 					renderGitalk();

@@ -14,7 +14,8 @@ export default {
 	max-width: 100%;
 }
 
-#comment-container :deep(.gt-container) {
+#comment-container .gt-container,
+#comment-container .gt-comment-body {
 	font-size: 13px !important;
 }
 </style>

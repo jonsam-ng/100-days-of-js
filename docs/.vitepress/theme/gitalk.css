@@ -1,0 +1,64 @@
+.gt-container {
+	--theme-color: var(--vp-c-brand);
+	--dark-text-color: #333;
+}
+
+.gt-container .gt-btn {
+	border: 1px solid var(--theme-color);
+	background-color: var(--theme-color);
+}
+
+.gt-container .gt-btn-preview {
+	color: var(--theme-color);
+	background-color: transparent;
+}
+
+.gt-container .gt-header-controls-tip {
+	color: var(--theme-color);
+}
+
+.gt-container .gt-svg svg {
+	/* fill: #6190e8; */
+	fill: var(--theme-color);
+}
+
+.gt-container a:hover {
+	color: #81a60d;
+	border-color: #81a60d;
+}
+
+.gt-container .gt-link {
+	border-bottom: 1px dotted var(--theme-color);
+}
+
+.gt-container a {
+	color: var(--theme-color);
+}
+
+.gt-container .gt-popup .gt-action.is--active::before {
+	background: var(--theme-color);
+}
+
+.gt-container .gt-btn-preview:hover {
+	border-color: #81a60d;
+}
+
+.gt-container .gt-user .is--poping .gt-ico svg {
+	fill: var(--theme-color);
+}
+
+.gt-container .gt-btn-public:hover {
+	background-color: #81a60d;
+	border-color: #81a60d;
+}
+
+.gt-container .gt-comment-username {
+	color: var(--theme-color);
+}
+
+html.dark .gt-container .gt-header-textarea {
+	color: var(--dark-text-color);
+}
+html.dark .gt-header-textarea::placeholder {
+	color: var(--dark-text-color);
+}
