@@ -32,23 +32,24 @@ export default {
 		},
 		danmaku: {
 			type: Boolean,
-			default: true,
+			default: false,
 			required: false,
 		},
 		page: {
 			type: Number,
-			default: 0,
+			default: 1,
 			required: false,
 		},
 		sandbox: {
 			type: String,
-			default: "allow-same-origin allow-popups allow-forms allow-scripts",
+			default:
+				"allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups",
 			required: false,
 		},
 		allowfullscreen: {
 			type: [String, Boolean],
 			required: false,
-			default: true,
+			default: "allowfullscreen",
 		},
 		width: {
 			type: String,
@@ -58,7 +59,7 @@ export default {
 		height: {
 			type: Array,
 			required: false,
-			default: () => [0, 521],
+			default: () => [9 / 16, 70],
 		},
 	},
 	computed: {

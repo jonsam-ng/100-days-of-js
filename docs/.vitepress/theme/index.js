@@ -11,6 +11,7 @@ import XMindViewer from "../components/XMindViewer.vue";
 import BackToTop from "../components/BackToTop.vue";
 import Comment from "../components/Comment.vue";
 import Bilibili from "../components/Bilibili.vue";
+import Xigua from "../components/Xigua.vue";
 
 import commentMixin from "../plugins/comment";
 import back2topMixin from "../plugins/back2top";
@@ -36,6 +37,7 @@ const components = [
 	RunCode,
 	XMindViewer,
 	Bilibili,
+	Xigua,
 ];
 
 // register global mixins
