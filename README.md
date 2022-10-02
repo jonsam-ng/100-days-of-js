@@ -41,7 +41,7 @@ These are features of this template:
 - 📤 **Back to comment and Back to anchor supported**.
 - ⚡️ **Great performance on development mode** - thanks for vitepress's magic speed.
 - 🛠 **Outbox CI/CD** - outbox CI/CD for github pages.
-- 💐 **Bilibili video embed supported**：embed bilibili video with `<Bilibili/>` tag.
+- 💐 **Bilibili video embed supported**：embed bilibili video with `<Bilibili/>` tag, support auto transform of avid and bvid.
 
 Click [here](https://100js.jonsam.site/示例) to view feature demos.Feel free to make your ideas real.
 
