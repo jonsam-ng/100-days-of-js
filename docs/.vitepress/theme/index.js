@@ -19,7 +19,7 @@ import progressMixin from "../plugins/nprogress";
 import globalMixin from "../plugins/global";
 import { isFunction } from "../util";
 import "@cloudgeek/vue3-video-player/dist/vue3-video-player.css";
-import "./custom.css";
+import "./custom.styl";
 import "./nprogress.styl";
 
 /**
