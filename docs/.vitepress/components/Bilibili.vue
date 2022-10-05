@@ -70,6 +70,9 @@ export default {
 				: this.id;
 			return bvidUtil.av2bv(avid);
 		},
+		avid() {
+			return bvidUtil.bv2av(this.bvid);
+		},
 		src() {
 			return `//player.bilibili.com/player.html?bvid=${this.bvid}&page=${this.page}&danmaku=${this.danmaku}`;
 		},
