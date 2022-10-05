@@ -33,7 +33,7 @@ These are features of this template:
 - 🌈 **XMind reader supported** - view xmind files with `<XMindViewer />`.
 - 🤹 **JavaScript code runner supported**  - run JavaScript code snippets in code blocks with tag `run`.
 - 🎙 **Image zooming supported** - support image rooming when click on images.
-- 🧮 **PWA available** - outbox PWA supported with [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa).
+- 🧮 **PWA available** - outbox PWA supported with [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa).[Coming]
 - 📰 **Local docs search available** - outbox search supported with [SearchPlugin](https://www.npmjs.com/package/vitepress-plugin-search).
 - 🌟 **Scan QRCode to read on mobile supported** - scan QRCode of pages to supported mobile reading.
 - 💻 **Comment supported**：comment is powered by gitalk.

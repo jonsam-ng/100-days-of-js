@@ -12,6 +12,7 @@ import BackToTop from "../components/BackToTop.vue";
 import Comment from "../components/Comment.vue";
 import Bilibili from "../components/Bilibili.vue";
 import Xigua from "../components/Xigua.vue";
+import { ExternalLinkIcon } from "../components/ExternalLinkIcon";
 
 import commentMixin from "../plugins/comment";
 import back2topMixin from "../plugins/back2top";
@@ -38,6 +39,7 @@ const components = [
 	XMindViewer,
 	Bilibili,
 	Xigua,
+	ExternalLinkIcon,
 ];
 
 // register global mixins

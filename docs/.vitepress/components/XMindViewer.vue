@@ -1,5 +1,5 @@
 <template>
-	<div ref="xmind" class="mindWrapper"></div>
+	<div ref="xmind" class="mindWrapper"><Spin :loading="loading" /></div>
 </template>
 
 <script>
@@ -10,6 +10,7 @@ export default {
 
 <script setup>
 import { onMounted, ref } from "vue";
+import Spin from "../components/spin.vue";
 
 const props = defineProps({
 	src: {
@@ -27,12 +28,17 @@ const props = defineProps({
 });
 
 const xmind = ref(null);
+const loading = ref(true);
 
 onMounted(() => {
 	import("xmind-embed-viewer").then((m) => {
 		const XMindEmbedViewer = m.XMindEmbedViewer;
 		const viewer = new XMindEmbedViewer({
 			el: xmind.value,
+		});
+		viewer.addEventListener("sheets-load", () => {
+			loading.value = false;
+			console.log("==>", 11);
 		});
 		fetch(props.src)
 			.then((res) => {

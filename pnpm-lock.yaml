@@ -10,6 +10,7 @@ specifiers:
   codemirror: ^6.0.1
   gitalk: ^1.8.0
   gray-matter: ^4.0.3
+  infinite-loading-vue3: ^1.0.1
   ismobilejs: ^1.1.1
   lodash.debounce: ^4.0.8
   markdown-it-attrs: ^4.1.4
@@ -42,6 +43,7 @@ dependencies:
   '@codemirror/theme-one-dark': 6.1.0
   codemirror: 6.0.1
   gitalk: 1.8.0
+  infinite-loading-vue3: 1.0.1_vue@3.2.39
   ismobilejs: 1.1.1
   lodash.debounce: 4.0.8
   markdown-it-decorate: 1.2.2
@@ -3100,6 +3102,15 @@ packages:
     resolution: {integrity: sha512-r/RmRG8xO06s/k+PIaif2r5rGc3j4Yhc01jSBfwPCXDLYZwp/yxralI37Df1mwmuzcCsen/E/ITKcTEvc1PQmQ==}
     dependencies:
       invariant: 2.2.4
+    dev: false
+
+  /infinite-loading-vue3/1.0.1_vue@3.2.39:
+    resolution: {integrity: sha512-3akMDvIMUv2Vsyt/HY+peLGVg3R/vozrLEv8Hz3EmoB/GQX2fdjzTmMKUPKrytBizAbA36UKI0yRJ2Ej3w8Ebw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.0.5
+    dependencies:
+      vue: 3.2.39
     dev: false
 
   /inflight/1.0.6:

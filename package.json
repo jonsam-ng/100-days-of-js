@@ -42,6 +42,7 @@
 		"@codemirror/theme-one-dark": "^6.0.0",
 		"codemirror": "^6.0.1",
 		"gitalk": "^1.8.0",
+		"infinite-loading-vue3": "^1.0.1",
 		"ismobilejs": "^1.1.1",
 		"lodash.debounce": "^4.0.8",
 		"markdown-it-decorate": "^1.2.2",

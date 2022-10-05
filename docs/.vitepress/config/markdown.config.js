@@ -7,6 +7,7 @@ import SectionPlugin from "markdown-it-header-sections";
 import AttrPlugin from "markdown-it-attrs";
 import MarkPlugin from "markdown-it-mark";
 import DecoratePlugin from "markdown-it-decorate";
+import ExternalLinkPlugin from "../plugins/external-link";
 
 export default {
 	theme: "material-palenight",
@@ -15,6 +16,7 @@ export default {
 		level: [0, 0],
 	},
 	config: (md) => {
+		md.use(ExternalLinkPlugin);
 		md.use(CodeRunPlugin);
 		md.use(PanguPlugin);
 		md.use(TaskListsPlugin);
