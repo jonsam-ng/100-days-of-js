@@ -10,7 +10,7 @@ export default {
 
 <script setup>
 import { onMounted, ref } from "vue";
-import Spin from "./spin.vue";
+import Spin from "./Spin.vue";
 
 const props = defineProps({
 	src: {
