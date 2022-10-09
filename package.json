@@ -7,7 +7,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs && bash scripts/deploy.sh",
-		"docs:serve": "vitepress serve docs"
+		"docs:serve": "vitepress serve docs",
+		"changelog:update": "changelog generate"
 	},
 	"keywords": [
 		"JavaScript",
@@ -19,6 +20,7 @@
 	"devDependencies": {
 		"@vitue/export-build-info": "^1.1.0",
 		"chalk": "^4.0.1",
+		"generate-changelog": "^1.8.0",
 		"gray-matter": "^4.0.3",
 		"markdown-it-attrs": "^4.1.4",
 		"markdown-it-header-sections": "^1.0.0",
