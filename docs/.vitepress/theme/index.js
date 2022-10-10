@@ -13,6 +13,7 @@ import Comment from "../components/Comment.vue";
 import Bilibili from "../components/Bilibili.vue";
 import Xigua from "../components/Xigua.vue";
 import { ExternalLinkIcon } from "../components/ExternalLinkIcon";
+import IFrame from "../components/IFrame.vue";
 
 import commentMixin from "../plugins/comment";
 import back2topMixin from "../plugins/back2top";
@@ -40,6 +41,7 @@ const components = [
 	Bilibili,
 	Xigua,
 	ExternalLinkIcon,
+	IFrame,
 ];
 
 // register global mixins

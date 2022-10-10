@@ -38,7 +38,6 @@ onMounted(() => {
 		});
 		viewer.addEventListener("sheets-load", () => {
 			loading.value = false;
-			console.log("==>", 11);
 		});
 		fetch(props.src)
 			.then((res) => {

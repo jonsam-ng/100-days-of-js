@@ -19,7 +19,7 @@ export default {
 </script>
 
 <script setup>
-import { defineProps, computed, onMounted, nextTick, ref } from "vue";
+import { computed, onMounted, nextTick, ref } from "vue";
 const props = defineProps({
 	xid: {
 		type: String,
@@ -78,7 +78,6 @@ const sbplayer = ref(null);
 onMounted(() => {
 	nextTick(() => {
 		const player = sbplayer.value;
-		console.log("==>", { player, h: props.height[0] });
 		player.style.height = `${
 			player.scrollWidth * props.height[0] + props.height[1]
 		}px`;
