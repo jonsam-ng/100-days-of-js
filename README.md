@@ -14,6 +14,10 @@
   <a href="https://100js.jonsam.site/示例">Template Demos</a> | <a href="https://100js.jonsam.site">Documentation</a>
 </p>
 
+<p align="center">
+  <a href="./README_zh-CN.md">中文</a>
+</p>
+
 ## Content
 
 - 💻 [CS:Computer Science related](https://100js.jonsam.site/CS/开始上手)
@@ -36,7 +40,7 @@ These are features of this template:
 - 🧮 **PWA available** - outbox PWA supported with [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa).[Coming]
 - 📰 **Local docs search available** - outbox search supported with [SearchPlugin](https://www.npmjs.com/package/vitepress-plugin-search).
 - 🌟 **Scan QRCode to read on mobile supported** - scan QRCode of pages to supported mobile reading.
-- 💻 **Comment supported**：comment is powered by gitalk.
+- 💻 **Comment supported**：comment is powered by `gitalk`.
 - 🎥 **Back To Top is supported**：you can back to top on docs page.
 - 📤 **Back to comment and Back to anchor supported**.
 - ⚡️ **Great performance on development mode** - thanks for vitepress's magic speed.
