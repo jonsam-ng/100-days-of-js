@@ -3,29 +3,29 @@
 <a href="https://100js.jonsam.site" target="_blank">
 <img src="./logo.png" alt="100js" height="250" width="250"/>
 </a>
-<h1 align="center">JavaScript技能提升100天</h1>
+<h1 align="center">JavaScript技能提升100天🔥🔥</h1>
 </p>
 
 <p align="center">
-坚持<b>100</b>天，让您的<b>JavaScript技能</b>迈向<b>新台阶</b>！🧑‍💻👩‍💻👨‍💻
+坚持<b>100</b>天，让您的<b>JavaScript技能</b>迈向<b>新台阶</b>💪！🧑‍💻👩‍💻👨‍💻
 </p>
 
 <p align="center">
-  <a href="https://100js.jonsam.site/示例">模板示例</a> | <a href="https://100js.jonsam.site">文档</a>
+  <a href="https://100js.jonsam.site/示例">🍁 模板示例</a> | <a href="https://100js.jonsam.site">📖 文档</a>
 </p>
 
 <p align="center">
-  <a href="./README.md">English</a>
+  <a href="./README.md">🌐 English</a>
 </p>
 
-## 内容
+## 📦 内容
 
 - 💻 [CS: 计算机科学基础相关](https://100js.jonsam.site/CS/开始上手)
 - 🧮 [DSA: 数据结构与算法相关](https://100js.jonsam.site/DSA/开始上手)
 - 🔭 [WEB: Web框架与工具链相关，源码与原理](https://100js.jonsam.site/WEB/开始上手)
 - 💡 [Interview: 面试题集与实践](https://100js.jonsam.site/Interview/开始上手)
 
-## 模板特性
+## 🚀 模板特性
 
 本文档站点使用 [Vitepress](https://vitepress.vuejs.org/) 构建, 您可以使用此仓库作为模板以构建您自己的文档系统。点击 "Use this template" 来构建您的笔记文档吧！
 
@@ -50,6 +50,6 @@
 
 点击 [我](https://100js.jonsam.site/示例) 已查看模板的功能示例。发挥你的想象力让你的想法和知识沉淀下来。
 
-## 协议
+## 🖊️ 协议
 
 MIT 协议 © 2021 [jonsam-ng](https://github.com/jonsam-ng)

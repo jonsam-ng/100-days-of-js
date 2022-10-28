@@ -3,29 +3,29 @@
 <a href="https://100js.jonsam.site" target="_blank">
 <img src="./logo.png" alt="100js" height="250" width="250"/>
 </a>
-<h1 align="center">100-day-of-js-enhance</h1>
+<h1 align="center">100 Days of JavaScript Enhancement🔥🔥</h1>
 </p>
 
 <p align="center">
-100 days to <b>enhance</b> your skills on <b>JavaScript</b>.🧑‍💻👩‍💻👨‍💻
+100 days to <b>enhance</b> your skills 💪 on <b>JavaScript</b>.🧑‍💻👩‍💻👨‍💻
 </p>
 
 <p align="center">
-  <a href="https://100js.jonsam.site/示例">Template Demos</a> | <a href="https://100js.jonsam.site">Documentation</a>
+  <a href="https://100js.jonsam.site/示例">🍁 Template Demos</a> | <a href="https://100js.jonsam.site">📖 Documentation</a>
 </p>
 
 <p align="center">
-  <a href="./README_zh-CN.md">中文</a>
+  <a href="./README_zh-CN.md">🌐 中文</a>
 </p>
 
-## Content
+## 📦 Content
 
 - 💻 [CS:Computer Science related](https://100js.jonsam.site/CS/开始上手)
 - 🧮 [DSA: Data Structures and Algorithms](https://100js.jonsam.site/DSA/开始上手)
 - 🔭 [WEB: Web things about Frameworks and ToolChains](https://100js.jonsam.site/WEB/开始上手)
 - 💡 [Interview: Interview Q&A and Experiences](https://100js.jonsam.site/Interview/开始上手)
 
-## Template Features
+## 🚀 Template Features
 
 The site is built on [Vitepress](https://vitepress.vuejs.org/), you can use this repo as a template to build your owns wonderful sites.Feel free to click "Use this template".
 
@@ -50,6 +50,6 @@ These are features of this template:
 
 Click [here](https://100js.jonsam.site/示例) to view feature demos.Feel free to make your ideas real.
 
-## License
+## 🖊️ License
 
 MIT License © 2021 [jonsam-ng](https://github.com/jonsam-ng)
