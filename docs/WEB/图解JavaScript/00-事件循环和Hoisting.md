@@ -1,7 +1,5 @@
 # 图解JavaScript之事件循环和变量提升
 
-<Badges :content="[{type: 'tip', text:'JavaScript'}]" />
-
 ## 目录
 
 [[TOC]]
@@ -118,4 +116,3 @@ baz();
 * 函数被存储为一个对整个函数的引用（reference），用`var`关键字声明的变量的值为`undefined`，而用`let`和`const`关键字声明的变量的值为`uninitialized`。
 
 希望本文能让你搞清楚 **变量提升（hoisting）** 这个术语。
-

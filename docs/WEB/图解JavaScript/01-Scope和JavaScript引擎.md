@@ -1,7 +1,5 @@
 # 图解JavaScript之作用域与JavaScript引擎
 
-<Badges :content="[{type: 'tip', text:'JavaScript'}]" />
-
 ## 目录
 
 [[TOC]]
@@ -104,43 +102,43 @@ function checkAge() {
 
 ## JavaScript Engine
 
-JavaScript很酷，但是机器是如何才能真正理解我们所编写的代码呢？作为JavaScript开发人员，我们通常不必自己处理编译器。不过，一定要了解JavaScript引擎的基础知识，看看它如何处理我们对人类友好的JS代码，并将其转换成机器可以理解的东西！🥳
+JavaScript很酷，但是机器是如何才能真正理解我们所编写的代码呢？作为JavaScript开发人员，我们通常不必自己处理编译器（compilers）。不过，一定要了解JavaScript引擎的基础知识，看看它如何处理对人类友好的JS代码，并将其转换成机器可以理解的东西！🥳
 
 > 请注意：这篇文章主要基于Node.js和基于Chromium的浏览器使用的V8引擎。
 
-HTML解析器遇到`script`标记，代码从 **网络** 、**缓存**或已装好的**service worker**加载。响应是把请求的脚本作为 **字节流** ，由字节流解码器负责！**字节流解码器**在下载字节流时对其进行解码。
+HTML解析器遇到`script`标记，代码从**网络**、**缓存**或已装好的**service worker**加载。响应是把请求的脚本作为**字节流**（stream of bytes），由字节流解码器负责！**字节流解码器**（byte stream decoder）在下载字节流时对其进行解码。
 
-[![](https://img-blog.csdnimg.cn/20200813165910401.png)](https://cdn.nlark.com/yuque/0/2020/gif/331906/1596188095277-399fc5e7-777b-4fa9-a8e9-76705ff4cd0a.gif)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--Xs5OQmGX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/pv4y4w0doztvmp8ei0ki.gif)
 
-字节流解码器从被解码的字节流中创建 **标记（token）** 。比如，`0066`解码为`f`，`0075`解码为`u`，`006e`解码为`n`，`0063`解码为`c`，`0074`解码为`t`，`0069`解码为`i`，`006f`解码为`o`，`006e`解码为`n`，后面跟一个空格。这不就是我们代码中写的`function`么！这是JavaScript中的一个保留关键字，会创建一个标记，并发送给解析器（和_预解析器_，这在gif中没有介绍，但稍后会解释）。字节流的其余部分也是这样的。
+字节流解码器从被解码的字节流中创建**tokens**。比如，`0066`解码为`f`，`0075`解码为`u`，`006e`解码为`n`，`0063`解码为`c`，`0074`解码为`t`，`0069`解码为`i`，`006f`解码为`o`，`006e`解码为`n`，后面跟一个空格。这不就是我们代码中写的`function`么！这是JavaScript中的一个保留关键字，会创建一个标记（token），并发送给解析器（parser）（和预解析器（pre-parser），这在图中没有介绍，但稍后会解释）。字节流的其余部分也是这样的。
 
-[![](https://img-blog.csdnimg.cn/20200813165910856.png)](https://cdn.nlark.com/yuque/0/2020/gif/331906/1596188096969-67c977a5-8389-49fd-b865-17f36199598c.gif)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--ID8wDIAy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/bic727jhzu0i8uep8v0k.gif)
 
-引擎使用两个解析器： **预解析器（Pre-Parser）** 和 **解析器（Parser）** 。为了减少加载网站所需的时间，引擎尝试避免解析不需要立即执行的代码。预处理器处理稍后可能使用的代码，而解析器处理立即需要的代码！如果某个函数只在用户单击按钮后才被调用，那么就没有必要立即编译这段代码来加载到网站。如果用户最终单击按钮并需要这段代码，它才被发送到解析器。
+引擎使用两个解析器：**预解析器（Pre-Parser）**和**解析器（Parser）** 。为了减少加载网站所需的时间，引擎尝试避免解析不需要立即执行的代码。预处理器处理稍后可能使用的代码，而解析器处理立即需要的代码！如果某个函数只在用户单击按钮后才被调用，那么就没有必要在加载网站时立即编译这段代码。如果用户最终单击按钮并需要这段代码，它才被发送到解析器。
 
-解析器根据从字节流解码器接收的标记创建节点，并用这些节点创建一个抽象语法树或AST（Abstract Syntax Tree）。🌳
+解析器根据从字节流解码器接收的标记（tokens）创建节点（nodes），并用这些节点创建一个抽象语法树或AST（Abstract Syntax Tree）。🌳
 
-[![](https://img-blog.csdnimg.cn/20200813165911474.png)](https://cdn.nlark.com/yuque/0/2020/gif/331906/1596188096880-6880eb4e-34bb-4a6e-8765-2dffe3469670.gif)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--6IHw1BUH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/sgr7ih6t7zm2ek28rtg6.gif)
 
-接下来，该 **解释器（Interpreter）** 出场了！ 解释器遍历AST，并根据AST所包含的信息生成 **字节码** 。字节码生成完毕后，会删除AST，以清除内存空间。最后，我们就有了一些机器可以处理的东西了！🎉
+接下来，该 **解释器（Interpreter）** 出场了！ 解释器遍历（walks through）AST，并根据AST所包含的信息生成**字节码**（byte code）。字节码生成完毕后，会删除AST，以清除内存空间。最后，我们就有了一些机器可以处理的东西了！🎉
 
-[![](https://img-blog.csdnimg.cn/20200813165911950.png)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--HlXdsZRx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/i5f0vmcjnkhireehicyn.gif)
 
 尽管字节码很快，但是它还可以更快点。随着此字节码运行，会生成一些信息。它可以检测某些行为是否经常发生，以及所使用的数据类型。可能我们已经调用了某个函数几十次数：该对它进行优化，让它运行得更快了！🏃🏽‍♀️
 
-字节码与生成的类型反馈一起，被发送到 **优化编译器** 。优化编译器获取字节码和类型反馈，并从中生成高度优化过的机器码。  🚀
+字节码与生成的类型反馈（type feedback）一起，被发送到**优化编译器**（optimizing compiler）。优化编译器获取字节码和类型反馈，并从中生成高度优化过的机器码。  🚀
 
-[![](https://img-blog.csdnimg.cn/20200813165912841.png)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--gsKbgaq7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/ongt4qftovd82sp2vihk.gif)
 
 JavaScript是一种动态类型的语言，这意味着数据的类型可以不断变化。如果JavaScript引擎每次都得检查某个值是哪种数据类型，那就会非常慢。
 
-为了减少解释代码所需的时间，优化过的机器码仅处理在执行字节码时引擎已经见过的情况。如果我们反复使用某段反复返回**相同**数据类型代码，那么就可以简单地重新使用经过优化的机器码以加快处理速度。不过，由于JavaScript是动态类型的，所以可能会发生同样的代码突然返回不同类型的数据的情况。如果发生这种情况，引擎就会对机器码进行非最佳化，并且会退回到解释生成的字节码。
+为了减少解释代码所需的时间，优化过的机器码仅处理在执行字节码时引擎已经见过的情况。如果我们反复使用某段反复返回**相同**数据类型代码，那么就可以简单地重新使用经过优化的机器码以加快处理速度。不过，由于JavaScript是动态类型的，所以可能会发生同样的代码突然返回不同类型的数据的情况。如果发生这种情况，引擎就会对机器码进行非最佳化（de-optimized），并且会退回到解释此前生成的字节码。
 
 假如某个函数被调用了100次，并且到目前为止一直返回相同的值，引擎就会假设在第101次调用它时还将返回该值。
 
 假设我们有如下函数`sum`，（到目前为止）每次都使用数值作为参数来调用它：
 
-[![](https://img-blog.csdnimg.cn/20200813165913304.png)](https://cdn.nlark.com/yuque/0/2020/png/331906/1596188092957-6527f554-1caf-41a0-8923-a54ad62b24ef.png)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s---hJ4L3Hm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/dhiaau4lo3n457yqud4o.png)
 
 这段代码会返回数字`3`！ 下次调用它时，引擎就会假定我们再次使用两个数值对其进行调用。
 
@@ -148,12 +146,17 @@ JavaScript是一种动态类型的语言，这意味着数据的类型可以不�
 
 比如，下一次调用它时，我们传递的是字符串而不是数字。由于JavaScript是动态类型的，所以我们可以做到这一点而没有任何错误！
 
-[![](https://img-blog.csdnimg.cn/20200813165913740.png)](https://cdn.nlark.com/yuque/0/2020/png/331906/1596188092956-5bf25105-7ab6-4df8-b661-661b4a3dd386.png)
+![image](https://res.cloudinary.com/practicaldev/image/fetch/s--GtrihoCc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/zugnjsg813urbj6vr4iy.png)
 
 这意味着数字`2`会被强制转换为字符串，并且函数将返回字符串`12`。引擎会回过来执行解释过的字节码，并更新类型反馈。
 
----
-
 希望这篇文章对您有用！ 😊当然，我在这篇文章中没有涉及引擎的很多部分（JS堆、调用栈等），我稍后可能会涉及！ 如果您对JavaScript的内部机制感兴趣，我绝对鼓励您自己开始做一些研究，V8是开源的，并且有一些不错的文档说明其工作原理！🤖
 
-[V8 Docs](https://v8.dev/) || [V8 Github](https://github.com/v8/v8) || [Chrome University 2018: Life Of A Script](https://www.youtube.com/watch?v=voDhHPNMEzg&t=729s%3Cbr%3E%0A)
+参考：
+
+* [V8 Docs](https://v8.dev/)
+* [V8 Github](https://github.com/v8/v8)
+* [Chrome University 2018: Life Of A Script](https://www.youtube.com/watch?v=voDhHPNMEzg&t=729s%3Cbr%3E%0A)
+* Life Of A Script On Bilibili
+  
+<Bilibili id="BV1nE411L7ng" />
