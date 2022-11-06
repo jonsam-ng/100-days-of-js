@@ -8,7 +8,7 @@ const { sidebar, nav } = AutoNavPlugin({
 	showNavIcon: true,
 	dirPrefix: "📂 ",
 	filePrefix: "📃 ",
-	isCollapse: true,
+	isCollapsible: true,
 	collapsed: false,
 });
 

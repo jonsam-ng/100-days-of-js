@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /CS/开始上手
+      link: /CS/0-开始上手
     - theme: alt
       text: View on GitHub
       link: https://github.com/jonsam-ng/100-day-of-js-enhance
