@@ -1,12 +1,10 @@
-# V8 之旅：编译器全景
+# V8 之旅：Full Compiler
 
 ## 目录
 
 [[TOC]]
 
-在过去的五年中，JavaScript的性能有了极大的提升，这主要归功于JavaScript虚拟机的执行机制由解释演变为了JIT。现在，JavaScript成为了HTML5的中坚力量，推动着新一波Web技术的发展。JavaScript引擎中，V8是最早使用原生代码的引擎之一。V8现已成为了Google Chrome、Android浏览器、WebOS及Node.js这样的其他项目中不可分割的重要组件。
-
-*本文来自Jay Conrod的[A tour of V8: full compiler](http://www.jayconrod.com/posts/51/a-tour-of-v8-full-compiler)，其中的术语、代码请以原文为准。*
+在过去的五年中，JavaScript的性能有了极大的提升，这主要归功于JavaScript虚拟机的执行机制由解释（interpretation）演变为了JIT（JIT compilation）。现在，JavaScript成为了HTML5的中坚力量，推动着新一波Web技术的发展。JavaScript引擎中，V8是最早使用原生代码（native code）的引擎之一。V8现已成为了Google Chrome、Android浏览器、WebOS及Node.js这样的其他项目中不可分割的重要组件。
 
 一年多前，我（指的是原作者）进入了我们公司的一个负责V8在我们ARM产品上优化的团队。从那时算起，由于软硬件性能的提升，我已亲眼见到SunSpider性能翻倍，V8性能测试提升近50%。
 
@@ -14,9 +12,20 @@ V8是一个非常有趣的项目，然而它的文档却非常分散。在接下
 
 ## 全局架构
 
-V8将所有JavaScript代码编译为原生代码执行，其中没有任何的解释器以及字节码参与。编译以函数为单位，一次编译一个（这与FireFox VM原有的TraceMonkey引擎相反，TraceMonkey为追踪式编译，并不以函数为单位）。通常，函数在初次调用之前是不会被编译的，因此如果你引用了一个大型的脚本库，VM并不会花大量的时间去编译那些根本没用到的部分。
+V8将所有JavaScript代码编译为原生代码执行，其中没有任何的解释器（interpretation）以及字节码（bytecode）参与。编译以函数为单位，一次编译一个（这与FireFox VM原有的TraceMonkey引擎相反，TraceMonkey为追踪式编译，并不以函数为单位）。通常，函数在初次调用之前是不会被编译的，因此如果你引用了一个大型的脚本库，VM并不会花大量的时间去编译那些根本没用到的部分。
 
-V8实际上有两个不同的JavaScript编译器。我个人喜欢将其看作[一个简单编译器及一个辅助编译器](http://newhtml.net/v8-full-compiler/2)（ *译注，这里看起来没有一个正经的，但实际上两个词汇描述的方面不同。前者指的是机制简单的编译器，后者指的是使用频度低的编译器。* ）。Full Compiler（ *对应简单编译器*）是一个不含优化的编译器，其工作就是尽快生成原生代码，以保持页面始终快速运转。Crankshaft（*对应辅助编译器* ）则是一个带有优化能力的编译器。V8会将任何初次遇到的代码使用FC编译，之后再使用内置的性能分析器挑选频度高的函数，使用Crankshaft优化。由于V8基本上是单线程的（截至3.14版），任何一个编译器运行时，都会打断脚本的执行。在V8未来的版本中，Crankshaft（或者至少其中一部分）将会在一个单独的线程中运行，与JavaScript的执行并发，以便进行更多昂贵的优化。
+V8实际上有两个不同的JavaScript编译器。我个人喜欢将其看作一个简单编译器及一个辅助编译器（ *译注，这里看起来没有一个正经的，但实际上两个词汇描述的方面不同。前者指的是机制简单的编译器，后者指的是使用频度低的编译器。* ）。Full Compiler（*对应简单编译器*）是一个不含优化的编译器，其工作就是尽快生成原生代码，以保持页面始终快速运转。Crankshaft（*对应辅助编译器*）则是一个带有优化能力的编译器。V8会将任何初次遇到的代码使用FC编译，之后再使用内置的性能分析器挑选频度高的函数，使用Crankshaft优化。由于V8基本上是单线程的（截至3.14版），任何一个编译器运行时，都会打断脚本的执行。在V8未来的版本中，Crankshaft（或者至少其中一部分）将会在一个单独的线程中运行，与JavaScript的执行并发，以便进行更多昂贵的优化。
+
+## 字节码和原生代码的区别
+
+原生代码是计算机编程（代码），它被编译为使用特定的处理器（如英特尔x86级处理器）及其指令集运行。原生代码是一种可执行代码，它直接在机器上运行，不依赖于任何解释器。它可以完全自由地访问任何内存区域（至少是在进程内存空间内）。
+
+字节码是被管理的代码，由CLR（通用语言运行时，Common Language Runtime）内的虚拟机执行。虚拟机是一个程序，它将平台通用的字节码转换为将在特定处理器中运行的本地代码。
+
+参考：
+
+- [What is the difference between native code (C) and bytecode (Java)? - Quora](https://www.quora.com/What-is-the-difference-between-native-code-C-and-bytecode-Java/answer/Sekhar-242?ch=10&oid=69601574&share=f8908df9&target_type=answer)
+- [Difference between Byte Code and Machine Code - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-byte-code-and-machine-code/)
 
 ## 为何没有字节码？
 
@@ -24,17 +33,17 @@ V8实际上有两个不同的JavaScript编译器。我个人喜欢将其看作[�
 
 字节码编译：
 
-* 语法分析（解析）
-* 作用域分析
-* 将语法树转换为字节码
+- 语法分析（解析）
+- 作用域分析
+- 将语法树转换为字节码
 
 原生代码编译：
 
-* 语法分析（解析）
-* 作用域分析
-* 将语法树转换为原生代码
+- 语法分析（解析）
+- 作用域分析
+- 将语法树转换为原生代码
 
-在上述两个过程中，我们都需要解析源码以及生成抽象语法树（AST），我们都需要进行作用域分析，以便得出每个符号所代表的是局部变量，上下文变量（闭包相关）或全局属性。唯独转换的过程是不同的。你可以在这一步做一些非常细致的工作，但你也同时希望编译器越快越好，甚至很想来个“直译”：语法树的每个节点都转化为一串相应的字节码或原生代码指令（ *译注，汇编指令* ）。
+在上述两个过程中，我们都需要解析源码以及生成抽象语法树（AST），我们都需要进行作用域分析，以便得出每个符号所代表的是局部变量，上下文变量（闭包相关）或全局变量。唯独转换的过程是不同的。你可以在这一步做一些非常细致的工作，但你也同时希望编译器越快越好，甚至很想来个“直译”：语法树的每个节点都转化为一串相应的字节码或原生代码指令（*译注，汇编指令*）。
 
 现在思考一下你会如何去做一个字节码解释器。一个朴素的实现可能就是一个循环，其中会不断获取字节码，然后进入一个大的`switch`语句，逐一执行其事先准备好的指令。[有一些途径](http://wingolog.org/archives/2012/06/27/inside-javascriptcores-low-level-interpreter)对这个过程进行改进，但最终还是会落到相近的结构上。
 
@@ -52,7 +61,7 @@ IC的实现称为Stub。Stub在使用层面上像函数：调用、返回。但�
 
 我们来看一段简单的例子，读取属性：
 
-```
+```js
 function f(o) {
   return o.x;
 }
@@ -60,7 +69,7 @@ function f(o) {
 
 当FC初次生成代码时，它会使用一个IC来演绎这个读取。IC以uninitialized状态（初态）初始，调用一个不包含任何优化代码的简易的Stub。下面是FC生成的调用stub的代码：
 
-```
+``` asm
 ;; FC调用
 ldr   r0, [fp, #+8]     ; 从栈中读取参数”o“
 ldr   r2, [pc, #+84]    ; 从固定的位置读取”x“
@@ -74,7 +83,7 @@ dd    0xabcdef01        ; 上面拿到的stub地址
 （如果你不熟悉ARM汇编的话，抱歉。希望注释能让代码的意图清晰）
 这是处于uninitialized态的stub：
 
-```
+```asm
 ;; uninitialized stub
 ldr   ip,  [pc, #8]   ; 读取C++运行时的函数来处理
 bx    ip              ; 尾调；译注：尾递归优化技术
@@ -83,7 +92,7 @@ bx    ip              ; 尾调；译注：尾递归优化技术
 
 当stub第一次被调用时，stub注定无法处理它所面对的操作，运行时代码会替stub来解决。在V8中，最常见的存储属性的方法就是将其放在对象中一个固定偏移量的地方，我们以此为例。每个对象都有一个指向Map的指针，也即一个描述对象布局的一个不变结构。负责读取对象自身属性的stub会将对象的布局图与已知的Map（也就是运行时所生成的Map）相比较，来快速确定对象是否在相应的位置存放着该属性。这个Map的检查使我们能够避开一次麻烦的Hash表查询。
 
-```
+```asm
 ;; monomorphic态的对象自身属性读取stub
 tst   r0,   #1          ; 检验目标是否是一个对象；译注：见代码末详细译注
 beq   miss              ; 不是就说明处理不了
@@ -111,8 +120,8 @@ bx    ip                ; 尾调
 
 ## 参考
 
-* [A tour of V8: full compiler — jayconrod.com](https://jayconrod.com/posts/51/a-tour-of-v8--full-compiler)
-* [V8 之旅：full compiler – NewHTML](http://newhtml.net/v8-full-compiler/)
+- [A tour of V8: full compiler — jayconrod.com](https://jayconrod.com/posts/51/a-tour-of-v8--full-compiler)
+- [V8 之旅：full compiler – NewHTML](http://newhtml.net/v8-full-compiler/)
 
 ::: warning 版权声明
 本文转载自[V8 之旅：full compiler](http://newhtml.net/v8-full-compiler/)，翻译自原文[A tour of V8: full compiler](https://jayconrod.com/posts/51/a-tour-of-v8--full-compiler)，部分内容针对原文有所修改。本文全部版权归原作者所有。
