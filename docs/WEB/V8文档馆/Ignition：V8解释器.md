@@ -459,3 +459,11 @@ DebugBreakExtraWide
 * [Ignition Design Doc - Google Docs](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit#heading=h.33ddlt81tdmf)
 * [【译】Ignition：V8解释器 - 知乎](https://zhuanlan.zhihu.com/p/41496446)
 * [Ignition: V8 Interpreter - 文档 - Jonsam's Docs](http://docs.jonsam.site/project-20/doc-421/#_l7nrslsveniq)
+
+## 扩展
+
+* [如何看待谷歌V8 JavaScript引擎引入新解释器Ignition? - 知乎](https://www.zhihu.com/question/50185400/answer/163719292)
+
+::: warning 版权声明
+本文转载自[Ignition：V8解释器](https://zhuanlan.zhihu.com/p/41496446)，原文为[Ignition Design Doc](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit#heading=h.33ddlt81tdmf)，所有版权归原作者所有。部分内容有删改。
+:::
