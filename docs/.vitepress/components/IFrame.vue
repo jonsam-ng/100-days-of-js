@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import { defineProps } from "vue";
-
 export default {
 	name: "IFrame",
 	props: {
