@@ -74,6 +74,78 @@ parsing 和 compiling 总共占用总时间的33%。
 
 ### Ignition 到 Turbofan
 
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.3t94xnsttby0.webp)
+
+在这里我们可以看到源代码文本在经过 Ignition 的编译下变成字节码，并且子节点在 TurboFan 中被构建为“节点海”。
+
+### 字节码对简化节点图构建的限制
+
+- 始终选择字节码
+- 作用域良好的基本块
+  - 异常处理程序覆盖单个线性范围的字节码
+- 没有不可约（irreducible）控制流
+- 单个反向分支到循环报头
+- 以循环闭合形式寄存器
+
+### 字节码的静态分析
+
+- 构建图之前的字节码预分析
+  - 活性分析(用于去优化框架状态)
+  - 环路分配分析(对于环路的缺陷)
+- 不要生成无用节点
+  - 避免内存过载（每个节点40+字节）
+  - 避免节点遍历
+
+### 活性分析
+
+- 基本块的预先迭代遍历
+  - 在图形构建过程中创建活动映射和状态值节点
+  - 之后基于活性重新创建状态值节点
+- 现在迭代遍历字节码数组
+  - 只创建一次状态值节点
+
+### 解决复杂控制(生成器)
+
+- Javascript生成器可以在任意点生成（yield）表达式
+  - 会引入不可约控制流
+  - 解决方案:在开头和循环头的隐藏tokens上转换为switch语句
+  - 结果:Turbofan不需要知道任何关于generator控制流程的知识
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.6ytglgjefcg0.webp)
+
+### 解决复杂控制(try-finally)
+
+- try-finally异常处理器
+  - 根据触发finally块的内容不同，以不同方式退出(fall-through, return或throw)
+  - 解决方法:在finally块的末尾的switch语句
+  - 结果:Turbofan不需要知道任何关于try-finally控制流的信息
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.12gwuscc9wow.webp)
+
+## 性能结果
+
+### 代码内存使用（真实的网站）
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.26j7ojd6vhds.webp)
+
+### Ignition vs Full-Codegen
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.18u1dqriv9b4.webp)
+
+### Octane Performance
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.7bqi8f08iug0.webp)
+
+### 时间花在了哪里（真实的网站）
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.4ctg7c5pona0.webp)
+
+## 总结
+
+- Ignition + Turbofan 是 V8 的未来
+- 对字节码的限制可以简化优化的图创建
+- 针对现实世界的优化暴露了不同的权衡
+
 ## 参考
 
 - [V8: Hooking up the Ignition to the Turbofan - Google Slides](https://docs.google.com/presentation/d/1chhN90uB8yPaIhx_h2M3lPyxPgdPmkADqSNAoXYQiVE/edit#slide=id.g1357e6d1a4_0_58)

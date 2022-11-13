@@ -1,6 +1,6 @@
-# Ignition：V8解释器
+# Ignition 设计文档
 
-> Ignition 设计文档。
+> Ignition: V8解释器。
 
 ## 目录
 
