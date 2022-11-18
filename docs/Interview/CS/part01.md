@@ -4,6 +4,12 @@
 
 ### 什么是MVC和MVVM
 
+::: info 扩展问题
+
+- 结合框架，谈谈你对 MVC 和 MVVM 的理解？
+- 你如何在项目中运行 MVC 和 MVVM？
+:::
+
 ![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.1x9tba30pckg.webp)
 
 ::: info 分层思想
@@ -75,6 +81,8 @@ View 表征视图，是**数据以某种方式下的呈现**，Model 表征模�
 :::
 
 在 MVVM 中（以 Vue 为例），框架更多的是对 VM（即 ViewModel）的部分做了封装（主要是 Reactivity 的部分），此时 View 的部分则抽象为框架对应用的视图渲染（或者说浏览器所呈现的 UI 界面，即 paint），这部分可以是 Vue 中基于 SFC 的 `template` 标签中的模板模型，也可以是 React 中的基于 JSX 的模型，总之这都是UI 框架对于组件的视图的逻辑表现的表征和定义。Model 的部分则抽象为组件生命周期之中的数据的来源，例如组件挂载或者点击事件中的接口请求、从本地存储中获取数据、从 websocket 中读取数据等。
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.6p75vdnhs9s0.webp)
 
 ### 什么是 Controller?
 
