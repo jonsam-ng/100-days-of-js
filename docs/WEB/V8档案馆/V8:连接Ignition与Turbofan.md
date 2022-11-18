@@ -1,4 +1,4 @@
-# V8: 连接 Ignition 与 Turbofan
+# V8:连接Ignition与Turbofan
 
 ## 目录
 
