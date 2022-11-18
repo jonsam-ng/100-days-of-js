@@ -29,7 +29,7 @@ specifiers:
   vite-plugin-pwa: ^0.13.1
   vitepress: 1.0.0-alpha.26
   vitepress-auto-nav-sidebar: ^0.0.5
-  vitepress-plugin-search: 1.0.4-alpha.14
+  vitepress-plugin-search: 1.0.4-alpha.15
   vue: ^3.2.39
   vue-codemirror: ^6.0.2
   vue-core-video-player: ^0.2.0
@@ -73,7 +73,7 @@ devDependencies:
   vite-plugin-pwa: 0.13.1
   vitepress: 1.0.0-alpha.26_stylus@0.59.0
   vitepress-auto-nav-sidebar: 0.0.5
-  vitepress-plugin-search: 1.0.4-alpha.14_vy55zchkfv5xtgfiu7qaacqvyu
+  vitepress-plugin-search: 1.0.4-alpha.15_vy55zchkfv5xtgfiu7qaacqvyu
   vue: 3.2.39
 
 packages:
@@ -1706,6 +1706,10 @@ packages:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
 
+  /@types/flexsearch/0.7.3:
+    resolution: {integrity: sha512-HXwADeHEP4exXkCIwy2n1+i0f1ilP1ETQOH5KDOugjkTFZPntWo0Gr8stZOaebkxsdx+k0X/K6obU/+it07ocg==}
+    dev: true
+
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
@@ -1715,6 +1719,21 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
+
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
+    dev: true
 
   /@types/node/18.7.20:
     resolution: {integrity: sha512-adzY4vLLr5Uivmx8+zfSJ5fbdgKxX8UMtjtl+17n0B1q1Nz8JEmE151vefMdpD+1gyh+77weN4qEhej/O7budQ==}
@@ -2357,6 +2376,11 @@ packages:
 
   /entities/2.1.0:
     resolution: {integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==}
+    dev: true
+
+  /entities/3.0.1:
+    resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
+    engines: {node: '>=0.12'}
     dev: true
 
   /es-abstract/1.20.3:
@@ -3451,6 +3475,12 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
+  /linkify-it/4.0.1:
+    resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
+    dependencies:
+      uc.micro: 1.0.6
+    dev: true
+
   /load-script/1.0.0:
     resolution: {integrity: sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==}
     dev: false
@@ -3533,6 +3563,17 @@ packages:
       argparse: 2.0.1
       entities: 2.1.0
       linkify-it: 3.0.3
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: true
+
+  /markdown-it/13.0.1:
+    resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 3.0.1
+      linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
     dev: true
@@ -4299,14 +4340,18 @@ packages:
     resolution: {integrity: sha512-UeJw60LEgVaDUoS3u3u9W+dPyinl8p6aMlDGNzEVwa5NP0tsSSwqiSZX2PcJ81J8KL6sYBmhbIdEUDt/6iFuPA==}
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.14_vy55zchkfv5xtgfiu7qaacqvyu:
-    resolution: {integrity: sha512-PvHdsv4DN4SNfbfMN2IFp6vNKLXqEVpZpvkFi5zyEdTn0nb2HtaNuAtwSeSz7gWOMZwzLQ/ncHQ0Ka5beHgASQ==}
+  /vitepress-plugin-search/1.0.4-alpha.15_vy55zchkfv5xtgfiu7qaacqvyu:
+    resolution: {integrity: sha512-Ef/VkhTVYlECVI0H9Ck6745UNPfYFppAqnlxVSMJXdxP2vjOZ5TYNczlTTQ2p9dh16MFw/IurbL1/GrG4nXdNw==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
+      flexsearch: ^0.7.31
       vite: 2 || 3
       vitepress: ^1.0.0-alpha.13
       vue: '3'
     dependencies:
+      '@types/flexsearch': 0.7.3
+      '@types/markdown-it': 12.2.3
+      markdown-it: 13.0.1
       vitepress: 1.0.0-alpha.26_stylus@0.59.0
       vue: 3.2.39
     dev: true

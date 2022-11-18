@@ -34,7 +34,7 @@
 		"vite-plugin-pwa": "^0.13.1",
 		"vitepress": "1.0.0-alpha.26",
 		"vitepress-auto-nav-sidebar": "^0.0.5",
-		"vitepress-plugin-search": "1.0.4-alpha.14",
+		"vitepress-plugin-search": "1.0.4-alpha.15",
 		"vue": "^3.2.39"
 	},
 	"dependencies": {

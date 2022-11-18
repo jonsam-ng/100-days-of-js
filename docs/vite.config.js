@@ -6,7 +6,10 @@ import { ExportBuildInfo } from "@vitue/export-build-info";
 export default defineConfig({
 	plugins: [
 		VitePWA(),
-		SearchPlugin(),
+		SearchPlugin({
+			cache: true,
+			context: true,
+		}),
 		ExportBuildInfo({
 			fileName: "build-info",
 			extend: {},
