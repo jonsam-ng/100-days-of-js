@@ -104,6 +104,10 @@ $ node --trace-opt --future example.js
 
 V8 中还有第三个领域，传统上它遭受[不可预测（基线）性能](https://www.youtube.com/watch?v=OP8jdbcDfaA&feature=youtu.be&t=955)的困扰：JavaScript 语言定义的内置函数（builtins）。这些是库函数，例如[`Object.create`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create),[`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)或[`String.prototype.charCodeAt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)。传统上，这些是通过自托管 JavaScript（self-hosted JavaScript）、手写机器代码（V8 支持的九种架构中的每一种）、Crankshaft 中的部分快路径和 C++ 运行时回退（fallbacks）的拙劣组合实现的。这不仅是正确性、稳定性和安全性错误的严重来源，而且还是导致性能普遍不可预测的主要因素之一。
 
+::: tip
+参考扩展中视频： Unorthodox Performance。
+:::
+
 例如，`Object.create`在一个简单的微基准测试中使用通常会提供相当不错的性能，但一旦它进入一个真正的应用程序，你有几个不同的库在使用它，从而向它提供相互矛盾的反馈，性能就会显着下降，而这个反馈污染（feedback pollution）导致使用结果对象的函数性能下降。如今`Object.create`是所谓的 TurboFan 内置（builtin），基于该`CodeStubAssembler`技术，并提供可预测的、体面的性能，或多或少独立于用途。
 
 另一个典型的例子是`Function.prototype.bind`，这是一个非常流行的切入点，将糟糕的内置性能（builtin performance）归咎于 V8（即[John-David Dalton](https://twitter.com/jdalton)习惯于指出 V8 中绑定函数（bound functions）的糟糕性能……他是对的）。`Function.prototype.bind`两年前在V8中的实现基本是这样的：
@@ -214,6 +218,12 @@ Unified code generation architecture:
 TurboFan Optimizing Compiler:
 
 ![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.10jealfbmiuo.webp)
+
+- John-David Dalton - Unorthodox Performance
+
+<Bilibili id="BV19P411g7GH" />
+
+Youtube：[John-David Dalton - Unorthodox Performance [ ThunderPlains 2015 ] - YouTube](https://www.youtube.com/watch?v=OP8jdbcDfaA)
 
 ## 参考
 
