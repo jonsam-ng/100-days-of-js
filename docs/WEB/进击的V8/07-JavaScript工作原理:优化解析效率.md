@@ -14,7 +14,7 @@
 2. 从语法树到字节码 —— V8 的解释器 [Ignition](https://v8.dev/docs/ignition) 从语法树中生成字节码，（[在 2017 年之前](https://docs.google.com/presentation/d/1chhN90uB8yPaIhx_h2M3lPyxPgdPmkADqSNAoXYQiVE/edit#slide=id.g18d89eb289_1_362) 并没有该步骤，具体可以看 [这篇文章](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)）。
 3. 从字节码到机器码 —— V8 的编译器 [TurboFan](https://v8.dev/docs/turbofan) 从字节码中生成图，用高度优化的机器码替代字节码部分。
 
-上述的第二和第三阶段 [涉及到了 JavaScript 的编译](/WEB/进击的V8/08-JavaScript工作原理：V8编译器的优化提效)。在这篇文章中，我们将重点介绍第一阶段并解释该阶段对编写高效 JavaScript 的影响。我们会按照从左到右、从上到下的顺序介绍解析管道（parsing pipeline），该管道接受源代码并生成一棵语法树。
+上述的第二和第三阶段 [涉及到了 JavaScript 的编译](/WEB/进击的V8/08-JavaScript工作原理:V8编译器的优化提效)。在这篇文章中，我们将重点介绍第一阶段并解释该阶段对编写高效 JavaScript 的影响。我们会按照从左到右、从上到下的顺序介绍解析管道（parsing pipeline），该管道接受源代码并生成一棵语法树。
 
 ![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/2022/image.55kel7ib5hs0.webp)
 

@@ -103,7 +103,7 @@ Crankshaft 很好，但是有一些缺点：
 
 ### 为什么需要解释
 
-参见：[V8: 连接 Ignition 与 Turbofan](/WEB/V8%E6%A1%A3%E6%A1%88%E9%A6%86/V8:%20%E8%BF%9E%E6%8E%A5%20Ignition%20%E4%B8%8E%20Turbofan#ignition-turbofan-pipeline)
+参见：[V8:连接Ignition与Turbofan](/WEB/V8%E6%A1%A3%E6%A1%88%E9%A6%86/V8:%E8%BF%9E%E6%8E%A5Ignition%E4%B8%8ETurbofan)
 
 ### Ignition的目标
 
