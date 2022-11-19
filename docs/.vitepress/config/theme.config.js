@@ -9,7 +9,7 @@ const { sidebar, nav } = AutoNavPlugin({
 	dirPrefix: "📂 ",
 	filePrefix: "📃 ",
 	isCollapsible: true,
-	collapsed: false,
+	collapsed: true,
 });
 
 export default {
