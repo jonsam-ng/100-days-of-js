@@ -16,6 +16,7 @@ features:
   - icon: 🍇
     title: CS
     details: 网络原理、操作系统......
+    link: /CS/0-开始上手
   - icon: 🍓
     title: DSA
     details: 数据结构与算法
