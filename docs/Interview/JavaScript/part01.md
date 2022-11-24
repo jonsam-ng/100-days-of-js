@@ -78,8 +78,345 @@ JavaScript的数组分为快数组和慢数组，其中快数组是具有动态�
 ::: info 扩展问题
 
 - 原型链的原理是什么？
-- V8为什么使用原型链？相比于OOP有什么好处？
-- 原型链继承和普通继承有什么不同？
+- 为什么使用原型链？有什么好处？
+- 原型链继承和经典继承有什么不同？
 :::
 
 每一个实例对象上有一个 `__proto__` 属性，指向构造函数的原型对象，构造函数的原型对象（prototype）也是一个对象， 也有 `__proto__` 属性，这样一层一层往上找的过程就形成了原型链。
+
+::: tip 原型链的历史渊源和原理
+早些年间浏览器只能浏览网页内容，而不能进行用户交互，交互主要靠服务器，因此给服务器造成了过载。JavaScript和DOM/BOM的出现就是为了解决**浏览器交互性**问题而生的。
+
+JavaScript的设计思想收到了当时流行的Java的影响，采用了**对象和继承的机制**（这对于CPP来说也是比较友好的），但是重新设计了继承机制。这种继承机制的灵感来源于Java 和 JS 两者都有**构造函数**的共同点，**构造函数即为实例对象的构造对象**。
+
+这其中存在的问题就是实例对象间**无法共享公共属性**，因此要设计一个对象专门用来**存储对象共享的属性**，即为**原型对象**。原型继承机制给构造函数增加`prototype`属性以指向原型对象，把**所有实例对象共享的属性和方法**都放在原型对象中，**不需要共享的属性和方法放在构造函数中**。实例对象通过构造函数创建时，其`__proto__`属性就会指向原型对象。这种通过原型建立起来的属性和方法的继承关系即为原型链。
+
+实例对象通过原型链继承其上游的原型对象的属性和方法。实例对象的属性被应用时，先从实例对象自身查找该属性，如果无法找到，就依原型继承关系向原型链上游查找，找到原型链的尽头 —— `Object.prototype.__proto__===null`。
+
+![image](https://cdn.staticaly.com/gh/jonsam-ng/image-hosting@master/oxygen-space/image.3slsu8co0mo0.webp)
+
+其中：`Foo` 为构造对象，`Foo.prototype` 为 `Foo` 的原型对象，`b` 和 `c` 为 `Foo` 的实例对象。原型关系如下：
+
+```js
+b.__proto__ === c.__proto__ === Foo.prototype
+Foo.__proto__ === Function.prototype
+Foo.prototype.__proto__ === Object.prototype
+Function.__proto__ === Object.prototype
+Object.__proto__ === null
+```
+
+其规律为：`继承者.__proto__===被继承者.prototype`。参见：[图解JavaScript之原型继承](/WEB/%E5%9B%BE%E8%A7%A3JavaScript/02-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF#%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF)
+:::
+
+::: tip 原型链查找的效率问题
+了解原型继承和属性查找的工作方式对开发者来说很重要，但也是必不可少的，因为它对JavaScript的性能影响很重要。正如V8的文档中提到的，大多数JavaScript引擎使用类似字典的数据结构来存储对象属性。因此，每个属性的访问都需要在该数据结构中进行动态查找该属性。这种方法使得在JavaScript中访问属性通常比访问Java和Smalltalk等编程语言中的实例变量慢得多。参见[Javascript Prototype & Scope Chains: What You Need to Know](https://www.toptal.com/javascript/javascript-prototypes-scopes-and-performance-what-you-need-to-know)。
+
+但是也不必太担心，因为在大多数情况下，在实例对象上可以命中属性。即使需要查找原型链，其速度也不会对程序的性能造成显著的影响。
+
+参见：
+
+- [oop - Why use chained prototype inheritance in javascript?](https://stackoverflow.com/questions/7294276/why-use-chained-prototype-inheritance-in-javascript)
+:::
+
+参考：
+
+JavaScript为什么使用原型链？相比于CBP（class-based programming）实现的OOP，prototype-based programming（PBP）有什么优势和缺陷？
+
+- [Why JavaScript is an OOP Language (Even Though It Doesn’t Have Classes)](https://medium.com/background-thread/why-javascript-is-an-oop-language-even-though-it-doesnt-have-classes-92a4e202176f)
+
+经典继承与原型继承的区别？
+
+- [经典继承与原型继承](/WEB/%E5%9B%BE%E8%A7%A3JavaScript/02-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF#%E7%BB%8F%E5%85%B8%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF)
+
+关于原型链的一些有趣的问题：
+
+- [javascript - Why is prototype function 40x slower than the default declared function? - Stack Overflow](https://stackoverflow.com/questions/9528087/why-is-prototype-function-40x-slower-than-the-default-declared-function)
+- [javascript - Defining methods via prototype vs using this in the constructor - really a performance difference? - Stack Overflow](https://stackoverflow.com/questions/12180790/defining-methods-via-prototype-vs-using-this-in-the-constructor-really-a-perfo)
+
+## 什么是闭包？手写一个闭包函数？闭包有哪些优缺点？
+
+::: info 扩展问题
+
+- 闭包的原理是什么？
+- 你对闭包有什么理解？
+- 你所知道闭包有哪些应用？
+:::
+
+闭包（closure）指有权访问另一个函数作用域中变量的函数。简单理解就是 ，一个作用域可以访问另外一个函数内部的局部变量。例如：
+
+```js
+function fn() {
+  var num = 10
+  function fun() {
+    console.log(num)
+  }
+  return fun
+}
+var f = fn()
+f()
+```
+
+特点：从内部函数访问外部函数的作用域；容易造成内层泄露，因为闭包中的局部变量永远不会被回收。
+
+::: info 闭包
+[闭包](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)（closure）是一个函数以及其捆绑的周边环境状态（lexical environment，词法环境）的引用的组合。换而言之，闭包让开发者可以从内部函数访问外部函数的作用域。在 JavaScript 中，闭包会随着函数的创建而被同时创建。
+
+性能考量：
+
+如果不是某些特定任务需要使用闭包，在其它函数中创建函数是不明智的，因为**闭包在处理速度和内存消耗方面对脚本性能具有负面影响**。
+
+例如，在创建新的对象或者类时，方法通常应该关联于对象的原型，而不是定义到对象的构造器中。原因是这将导致每次构造器被调用时，方法都会被重新赋值一次（也就是说，对于每个对象的创建，方法都会被重新赋值）。
+:::
+
+::: tip 闭包的应用场景
+
+- [用闭包模拟私有方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures#%E7%94%A8%E9%97%AD%E5%8C%85%E6%A8%A1%E6%8B%9F%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95)：如常用的防抖和节流函数。
+- 利用闭包编写组件。React 中的函数式组件（FC）正是利用了闭包”共享作用域“的特性。组件的状态（State和Context）和属性（Props）是通过闭包分发的。React在渲染组件时执行闭包，保证了组件中的状态和行为不会被泄露和污染。当然，应用中大量的组件也会带来一定的性能负担。参见[基于属性和状态的单向数据流的模型](https://source.jonsam.site/react/tour/dr-1/#%E5%9F%BA%E4%BA%8E%E5%B1%9E%E6%80%A7%E5%92%8C%E7%8A%B6%E6%80%81%E7%9A%84%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E6%A8%A1%E5%9E%8B)。
+- 闭包陷阱：在React中经常会遇到闭包陷阱，尤其在`useEffect`中。由于React不支持自动解析副作用的依赖，因此很多函数不得不放到`useEffect`内部，导致经常出现意想不到的闭包问题。解决闭包问题的常见方法是使用 `useRef`。
+:::
+
+## 常见的继承有哪些？
+
+### 原型链继承
+
+特点：
+
+- 实例可继承的属性有：实例的构造函数的属性，父类构造函数属性，父类原型的属性。
+
+缺点：
+
+- 新实例无法向父类构造函数传参。
+- 继承单一。
+- 所有新实例都会共享父类实例的属性。
+
+```js
+function SuperType(){
+  this.colors = ["red", "blue", "green"];
+}
+function SubType(){}
+
+SubType.prototype = new SuperType();
+```
+
+### 借用构造函数继承
+
+重点： 用 `.call()` 和 `.apply()` 将父类构造函数引入子类函数。
+
+特点：
+
+- 只继承了父类构造函数的属性，没有继承父类原型的属性。
+- 可以继承多个构造函数属性。（解决了原型链继承缺点 1、2、3）
+- 在子实例中可向父实例传参。
+
+缺点：
+
+- 只能继承父类构造函数的属性。
+- 无法实现构造函数的复用。
+- 每个新实例都有父类构造函数的副本冗余。
+
+```js
+function  SuperType(){
+    this.color=["red","green","blue"];
+}
+function  SubType(){
+    //继承自SuperType
+    SuperType.call(this);
+}
+```
+
+### 组合继承
+
+组合原型链继承和借用构造函数继承的方法。
+
+重点：结合了两种模式的优点，可以传参和复用。
+
+特点：
+
+- 可以继承父类原型上的属性，可以传参，可复用。
+- 每个新实例引入的构造函数属性是私有的。
+
+缺点： 调用了两次父类构造函数（耗内存），子类的构造函数会代替原型上的那个父类构造函数。
+
+```js
+function SuperType(name){
+  this.name = name;
+  this.colors = ["red", "blue", "green"];
+}
+SuperType.prototype.sayName = function(){
+  alert(this.name);
+};
+
+function SubType(name, age){
+  // 继承属性
+  // 第二次调用SuperType()
+  SuperType.call(this, name);
+  this.age = age;
+}
+
+// 继承方法
+// 构建原型链
+// 第一次调用SuperType()
+SubType.prototype = new SuperType(); 
+// 重写SubType.prototype的constructor属性，指向自己的构造函数SubType
+SubType.prototype.constructor = SubType; 
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+```
+
+### 原型式继承
+
+重点： 用一个函数包装一个对象，然后返回这个函数的调用，这个函数就变成了个可以随意增添属性的实例或对象。object.create()就是这个原理。
+
+特点： 类似于复制一个对象，用函数来包装。
+
+缺点：
+
+- 所有实例都会继承原型上的属性。
+- 无法实现复用。
+
+```js
+// ES5中存在Object.create()的方法，能够代替此方法。
+function create(obj){
+  function F(){}
+  F.prototype = obj;
+  return new F();
+}
+```
+
+### class 类实现继承
+
+通过 extends 和 super 实现继承。
+
+### 寄生式继承
+
+重点： 在原型式继承的基础上，增强对象，返回构造函数。
+
+优点： 没有创建自定义类型，因为只是套了个壳子返回对象，这个函数顺理成章就成了创建的新对象。
+
+缺点： 没用到原型，无法复用。
+
+```js
+function createObject(original){
+  var clone = create(original); // 通过调用 object() 函数创建一个新对象
+  clone.sayHi = function(){  // 以某种方式来增强对象
+    alert("hi");
+  };
+  return clone; // 返回这个对象
+}
+```
+
+::: tip ES5继承和ES6继承的区别
+ES5的继承是先创建子类的实例对象，然后再将父类的方法添加到this上（Parent.call(this)）。
+
+ES6的继承是先创建父类的实例对象this，然后再用子类的构造函数修改this。因为子类没有自己的this对象，所以必须先调用父类的super()方法，否则新建实例报错。
+:::
+
+参见：
+
+- [JavaScript常用八种继承方案 - 掘金](https://juejin.cn/post/6844903696111763470)
+- [ES6 与 ES5 继承的区别 - 掘金](https://juejin.cn/post/6844903924015120397)
+
+## 你如何实现ES6的Class？
+
+::: info 扩展问题
+
+- Class 的原理是什么？如何实现？
+:::
+
+实现代码如下：
+
+```js
+const isFunction = (n) => typeof n === "function";
+const extendProperties = (base, extend, cb) => {
+ for (let p in extend) {
+  if (extend.hasOwnProperty(p)) {
+   if (isFunction(cb)) {
+    cb(p);
+   } else {
+    base.prototype[p] = extend[p];
+   }
+  }
+ }
+ return base;
+};
+
+const Class = (() => {
+ function create(properties, parent) {
+  function _instance() {
+   if (isFunction(this.initialize)) this.initialize.apply(this, arguments);
+  }
+  function polymorph(thisFunction, parentFunction) {
+   return function () {
+    this.__parent = parentFunction;
+    const output = thisFunction.apply(this, arguments);
+    delete this.__parent;
+    return output;
+   };
+  }
+  if (parent) {
+   _instance.prototype = new parent.constructor();
+   extendProperties(_instance, parent);
+  }
+
+  extendProperties(_instance, properties, (p) => {
+   _instance.prototype[p] =
+    parent && isFunction(parent[p])
+     ? polymorph(properties[p], parent[p])
+     : properties[p];
+  });
+
+  _instance.extend = function extend(properties) {
+   return create(properties, this.prototype);
+  };
+
+  return _instance;
+ }
+ return { create };
+})();
+```
+
+测试代码如下：
+
+```js
+var Accommodation = Class.create({
+ isLocked: true,
+ isAlarmed: true,
+ lock: function () {
+  this.isLocked = true;
+ },
+ unlock: function () {
+  this.isLocked = false;
+ },
+ initialize: function () {
+  this.unlock();
+ },
+});
+
+var House = Accommodation.extend({
+ floors: 2,
+ lock() {
+  console.log("Number of floors locked:" + this.floors);
+ },
+});
+
+var myAccommodation = new Accommodation();
+console.log(myAccommodation instanceof Accommodation); // true
+console.log(myAccommodation instanceof House); // false
+
+var myHouse = new House();
+console.log(myHouse instanceof House); // true
+console.log(myHouse instanceof Accommodation); // true
+
+console.log(myHouse.isLocked); // false
+myHouse.lock(); // Number of floors locked:2
+console.log(myHouse.isLocked); // false
+```
+
+参见：
+
+- [自己写ES6的Class - 掘金](https://juejin.cn/post/7012129761044463629)
+
+## es6 有哪些新特性？
+
+ES6的新特性现在已经不是那么“新”了，参照[ES6 入门教程](https://es6.ruanyifeng.com/)。
