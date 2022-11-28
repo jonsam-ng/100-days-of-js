@@ -29,6 +29,34 @@ async 和 await 对于解决”回调地狱“问题十分有效，其本质是 
 Promise 才应该是主角。”回调地狱“固然是问题，但是这不应该是”回调“的锅。”回调“在很大程度上提升了JavaScript的生产力，同时也是函数式编程一大利器。我们应该充分发挥 Promise 的效率，利用好事件循环和微任务，在这个方面，`single-spa` 给我们提供了很好的范例，参见[微前端基础与 single-spa 初探](https://source.jonsam.site/slides/#/3)。
 :::
 
+## 怎么配置使用async/await？
+
+`async/await` 是ES7标准中的新特性。如果是使用React官方的脚手架（Create React App）创建的项目，就可以直接使用。如果是在自己搭建的webpack配置的项目中使用，可能会遇到 `regeneratorRuntime is not defined` 的异常错误。那么我们就需要引入babel，并在babel中配置使用 `async/await`。可以利用babel的 `@babel/transform-runtime` 插件来转换其成为浏览器支持的语法，虽然没有性能的提升，但对于代码编写体验要更好。
+
+配置过程（支持Babel 7）：
+
+安装依赖：
+
+```bash
+npm install --save @babel/runtime 
+npm install --save-dev @babel/plugin-transform-runtime
+```
+
+配置 `.babelrc` 文件：
+
+```js
+{
+    "presets": ["@babel/preset-env"],
+    "plugins": [
+        ["@babel/transform-runtime"]
+    ]
+}
+```
+
+参考：
+
+- [[Solved] Babel ReferenceError: regeneratorRuntime is not defined](https://exerror.com/babel-referenceerror-regeneratorruntime-is-not-defined/)。
+
 ## 常用的数组方法有哪些？
 
 ::: info 扩展问题
@@ -420,3 +448,56 @@ console.log(myHouse.isLocked); // false
 ## es6 有哪些新特性？
 
 ES6的新特性现在已经不是那么“新”了，参照[ES6 入门教程](https://es6.ruanyifeng.com/)。
+
+## cookie 、localStorage 、 sessionStorage 之间有什么区别？
+
+参见：
+
+- [https://www.xyass.com/blogs/cookies-and-localstorage-and-sessionstorage-a-detailed-explanation-and](https://www.xyass.com/blogs/cookies-and-localstorage-and-sessionstorage-a-detailed-explanation-and)
+- [Difference Between Local Storage, Session Storage And Cookies - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-local-storage-session-storage-and-cookies/)
+
+## this 的指向有哪些？
+
+总结一下：
+
+- 普通函数中的 this 指向 window
+- 定时器中的 this 指向 window
+- 箭头函数中 this 指向取决于外部环境
+- 事件中的 this 指向事件的调用者
+- 构造函数中 this 和原型对象中的 this，都是指向构造函数 new 出来实例对象
+- 类 class 中的 this 指向由 constructor 构造器 new 出来的实例对象
+- 自调用函数中的 this 指向 window
+
+## 谈谈你平时都用了哪些方法进行性能优化？
+
+## js 的执行机制是怎么样的？
+
+js 是一个单线程、异步、非阻塞 I/O 模型、 event loop 事件循环的执行机制
+
+所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。
+
+同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。异步 任务指的是，不进入主线程、而进入"任务队列"（task queue）的任务，只有"任务队列"通知主线程， 某个异步任务可以执行了，该任务才会进入主线程执行。
+
+## 如何判断数据类型？各有什么优缺点？
+
+## symbol的原理是什么？
+
+## promise 是什么？它有哪些作用？
+
+## 箭头函数有哪些特征？它的原理是什么？
+
+## BFC 是什么？
+
+BFC（会计格式化上下文），一个创建了新的 BFC 的盒子是独立布局的，盒子内元素的布局不会影响盒 子外面的元素。在同一个 BFC 中的两个相邻的盒子在垂直方向发生 margin 重叠的问题。
+
+BFC 是值浏览器中创建了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布 局，这个渲染区域只对块级元素起作用。
+
+## call、apply、bind 三者的异同？
+
+共同点 : 都可以改变 this 指向;
+
+不同点: call 和 apply 会调用函数, 并且改变函数内部 this 指向. call 和 apply传递的参数不一样,call 传递参数使用逗号隔开,apply 使用数组传递 bind 不会调用函数, 可以改变函 数内部 this 指向. 应用场景
+
+- call 经常做继承.
+- apply 经常跟数组有关系. 比如借助于数学对象实现数组最大值最小值
+- bind 不调用函数,但是还想改变 this 指向. 比如改变定时器内部的 this 指向。
