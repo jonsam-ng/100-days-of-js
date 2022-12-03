@@ -19,6 +19,7 @@ const router = useRoute();
 const containerClass = ref(
 	!router.path || router.path === "/" ? "container" : "container blur"
 );
+console.log('==>', {p: router.path});
 watch(
 	() => router.path,
 	() => {
