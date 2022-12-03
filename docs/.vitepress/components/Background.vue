@@ -19,11 +19,10 @@ const router = useRoute();
 const containerClass = ref(
 	!router.path || router.path === "/" ? "container" : "container blur"
 );
-console.log('==>', {p: router.path});
 watch(
 	() => router.path,
 	() => {
-		if (router.path === "/") {
+		if (router.path === "/" || !router.path) {
 			containerClass.value = "container";
 		} else {
 			containerClass.value = "container blur";
