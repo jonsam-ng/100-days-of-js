@@ -99,7 +99,7 @@ export default {
 }
 .wire {
 	width: 3px;
-	height: 55vh;
+	height: 50vh;
 	background-color: #44444488;
 	position: absolute;
 	right: calc(15vw + 98.5px);
