@@ -27,7 +27,7 @@ specifiers:
   qrcode.vue: ^3.3.3
   stylus: ^0.59.0
   vite-plugin-pwa: ^0.13.1
-  vitepress: 1.0.0-alpha.26
+  vitepress: 1.0.0-alpha.29
   vitepress-auto-nav-sidebar: ^0.0.5
   vitepress-plugin-search: 1.0.4-alpha.15
   vue: ^3.2.39
@@ -71,9 +71,9 @@ devDependencies:
   markdown-it-task-lists: 2.1.1
   stylus: 0.59.0
   vite-plugin-pwa: 0.13.1
-  vitepress: 1.0.0-alpha.26_stylus@0.59.0
+  vitepress: 1.0.0-alpha.29_stylus@0.59.0
   vitepress-auto-nav-sidebar: 0.0.5
-  vitepress-plugin-search: 1.0.4-alpha.15_vy55zchkfv5xtgfiu7qaacqvyu
+  vitepress-plugin-search: 1.0.4-alpha.15_4ezpuxkjlzfpynskqf4763gp5i
   vue: 3.2.39
 
 packages:
@@ -1753,14 +1753,14 @@ packages:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: true
 
-  /@vitejs/plugin-vue/3.2.0_vite@3.2.0+vue@3.2.41:
+  /@vitejs/plugin-vue/3.2.0_vite@3.2.4+vue@3.2.41:
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.0_stylus@0.59.0
+      vite: 3.2.4_stylus@0.59.0
       vue: 3.2.41
     dev: true
 
@@ -3974,14 +3974,6 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /shiki-processor/0.1.1_shiki@0.11.1:
-    resolution: {integrity: sha512-K2v/JNHdMRGFnbcVqAgvPU8qmZNgtiBrYcYKe3O6Lx2W0RoyiwzrrpCUU917b2r2EMS+2FNgRIgz9xvtmF/L7w==}
-    peerDependencies:
-      shiki: ^0.11.1
-    dependencies:
-      shiki: 0.11.1
-    dev: true
-
   /shiki/0.11.1:
     resolution: {integrity: sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==}
     dependencies:
@@ -4305,17 +4297,20 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/3.2.0_stylus@0.59.0:
-    resolution: {integrity: sha512-Ovj7+cqIdM1I0LPCk2CWxzgADXMix3NLXpUT6g7P7zg/a9grk/TaC3qn9YMg7w7M0POIVCBOp1aBANJW+RH7oA==}
+  /vite/3.2.4_stylus@0.59.0:
+    resolution: {integrity: sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
+      '@types/node': '>= 14'
       less: '*'
       sass: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
     peerDependenciesMeta:
+      '@types/node':
+        optional: true
       less:
         optional: true
       sass:
@@ -4340,7 +4335,7 @@ packages:
     resolution: {integrity: sha512-UeJw60LEgVaDUoS3u3u9W+dPyinl8p6aMlDGNzEVwa5NP0tsSSwqiSZX2PcJ81J8KL6sYBmhbIdEUDt/6iFuPA==}
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.15_vy55zchkfv5xtgfiu7qaacqvyu:
+  /vitepress-plugin-search/1.0.4-alpha.15_4ezpuxkjlzfpynskqf4763gp5i:
     resolution: {integrity: sha512-Ef/VkhTVYlECVI0H9Ck6745UNPfYFppAqnlxVSMJXdxP2vjOZ5TYNczlTTQ2p9dh16MFw/IurbL1/GrG4nXdNw==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -4352,26 +4347,26 @@ packages:
       '@types/flexsearch': 0.7.3
       '@types/markdown-it': 12.2.3
       markdown-it: 13.0.1
-      vitepress: 1.0.0-alpha.26_stylus@0.59.0
+      vitepress: 1.0.0-alpha.29_stylus@0.59.0
       vue: 3.2.39
     dev: true
 
-  /vitepress/1.0.0-alpha.26_stylus@0.59.0:
-    resolution: {integrity: sha512-XpDpflrdmyBmUQrg06q29Mhez144NvoZ48pRvNhANy/wV7E7XJ1zenQROOSADnOsAlhV1gzcNjqiFNObCk7l8A==}
+  /vitepress/1.0.0-alpha.29_stylus@0.59.0:
+    resolution: {integrity: sha512-oaRaeMLcN9M3Bxz97fFVF6Gzm3Aqtb0CijTt5TOW0XPzNPuKA0YpFnsmS97gdKmA+VztM6itRJ8K7JJuU0VS3g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
       '@docsearch/js': 3.3.0
-      '@vitejs/plugin-vue': 3.2.0_vite@3.2.0+vue@3.2.41
+      '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.41
       '@vue/devtools-api': 6.4.5
       '@vueuse/core': 9.4.0_vue@3.2.41
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
-      shiki-processor: 0.1.1_shiki@0.11.1
-      vite: 3.2.0_stylus@0.59.0
+      vite: 3.2.4_stylus@0.59.0
       vue: 3.2.41
     transitivePeerDependencies:
       - '@algolia/client-search'
+      - '@types/node'
       - '@types/react'
       - '@vue/composition-api'
       - less

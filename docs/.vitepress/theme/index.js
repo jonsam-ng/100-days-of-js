@@ -14,6 +14,8 @@ import Bilibili from "../components/Bilibili.vue";
 import Xigua from "../components/Xigua.vue";
 import { ExternalLinkIcon } from "../components/ExternalLinkIcon";
 import IFrame from "../components/IFrame.vue";
+import Background from "../components/Background.vue";
+import Layout from "../components/Layout.vue";
 
 import commentMixin from "../plugins/comment";
 import back2topMixin from "../plugins/back2top";
@@ -42,6 +44,7 @@ const components = [
 	Xigua,
 	ExternalLinkIcon,
 	IFrame,
+	Background,
 ];
 
 // register global mixins
@@ -56,6 +59,7 @@ const mixins = [
 
 export default {
 	...DefaultTheme,
+	Layout,
 	enhanceApp: async ({ app, router, siteData }) => {
 		// install components
 		components.forEach((component) => app.component(component.name, component));
