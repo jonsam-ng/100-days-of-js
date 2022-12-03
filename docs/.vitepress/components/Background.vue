@@ -9,6 +9,7 @@ export default {
 	name: "Background",
 };
 </script>
+
 <script setup>
 // inspirations from https://github.com/Merlin-Chest/Blog/blob/master/docs/.vitepress/theme/components/Background.vue
 import Bulb from "./Bulb.vue";
@@ -16,7 +17,7 @@ import { useRoute } from "vitepress";
 import { ref, watch } from "vue";
 const router = useRoute();
 const containerClass = ref(
-	router.path === "/" ? "container" : "container filter"
+	!router.path || router.path === "/" ? "container" : "container blur"
 );
 watch(
 	() => router.path,
@@ -24,7 +25,7 @@ watch(
 		if (router.path === "/") {
 			containerClass.value = "container";
 		} else {
-			containerClass.value = "container filter";
+			containerClass.value = "container blur";
 		}
 	}
 );
@@ -38,7 +39,7 @@ watch(
 	height: 100vh;
 	z-index: -1;
 }
-.filter {
+.blur {
 	filter: blur(40px);
 	opacity: 80%;
 }
